@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalForm.reset();
     });
 
-    document.querySelectorAll('.badge-item, .service-card').forEach(item => {
+    document.querySelectorAll('.badge-item').forEach(item => {
       item.addEventListener('click', function () {
         const name = this.textContent.trim().split('\n')[0];
         if (serviceNameInput) serviceNameInput.value = name;
