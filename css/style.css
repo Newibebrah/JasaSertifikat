@@ -250,9 +250,11 @@ img {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
-  background: none;
+  padding: 8px;
+  background: rgba(255,255,255,0.1);
   border: none;
+  border-radius: 8px;
+  margin-left: 8px;
 }
 
 .nav-hamburger span {
@@ -1613,7 +1615,7 @@ img {
   }
 
   .nav-hamburger {
-    display: flex;
+    display: flex !important;
   }
 
   .navbar {
@@ -1760,8 +1762,17 @@ img {
     font-size: 0.65rem;
   }
   .nav-cta .btn {
-    padding: 5px 10px;
-    font-size: 0.62rem;
+    padding: 6px;
+    gap: 0;
+    min-width: 34px;
+    justify-content: center;
+  }
+  .nav-cta .btn i {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  .nav-cta .btn .btn-text {
+    display: none;
   }
   .nav-hamburger span {
     width: 20px;
