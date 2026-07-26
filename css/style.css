@@ -760,19 +760,14 @@ img {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
 .mitra-carousel .mitra-grid#institusiGrid {
   display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding: 8px 4px;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
   flex: 1;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 .mitra-carousel .mitra-grid::-webkit-scrollbar {
@@ -780,13 +775,16 @@ img {
 }
 
 .mitra-carousel .mitra-card {
-  flex: 0 0 220px;
-  scroll-snap-align: start;
-  padding: 24px 14px;
+  flex: 0 0 100%;
+  padding: 32px 16px;
+  box-sizing: border-box;
 }
 
 .carousel-btn {
-  flex-shrink: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -800,7 +798,14 @@ img {
   justify-content: center;
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
-  z-index: 2;
+}
+
+.carousel-prev {
+  left: -4px;
+}
+
+.carousel-next {
+  right: -4px;
 }
 
 .carousel-btn:hover {
@@ -1583,9 +1588,6 @@ img {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
-  .mitra-carousel .mitra-card {
-    flex: 0 0 180px;
-  }
   .carousel-btn {
     width: 34px;
     height: 34px;
@@ -1757,10 +1759,6 @@ img {
   }
   .mitra-grid {
     gap: 10px;
-  }
-  .mitra-carousel .mitra-card {
-    flex: 0 0 150px;
-    padding: 16px 10px;
   }
   .carousel-btn {
     width: 28px;

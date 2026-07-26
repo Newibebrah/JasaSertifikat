@@ -409,6 +409,10 @@ function initWACTAButtons() {
 function scrollMitra(dir) {
   const grid = document.querySelector('.mitra-carousel .mitra-grid');
   if (!grid) return;
-  const scrollAmount = grid.querySelector('.mitra-card')?.offsetWidth + 16 || 240;
-  grid.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
+  const card = grid.querySelector('.mitra-card');
+  if (!card) return;
+  const cardWidth = card.offsetWidth;
+  const currentIndex = Math.round(grid.scrollLeft / cardWidth);
+  const targetIndex = Math.max(0, Math.min(grid.children.length - 1, currentIndex + dir));
+  grid.scrollLeft = targetIndex * cardWidth;
 }
