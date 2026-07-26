@@ -1535,7 +1535,7 @@ img {
     grid-template-columns: repeat(2, 1fr);
   }
   .badge-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   .mitra-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1640,11 +1640,11 @@ img {
     padding: 22px 18px;
   }
   .badge-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
   .badge-item {
-    padding: 10px 8px;
+    padding: 12px 8px;
     font-size: 0.72rem;
   }
   .mitra-grid {
@@ -1786,7 +1786,7 @@ img {
     font-size: 1.5rem;
   }
   .badge-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 6px;
   }
   .badge-item {
@@ -1932,7 +1932,7 @@ img {
     font-size: 0.7rem;
   }
   .badge-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 4px;
   }
   .badge-item {
