@@ -1173,56 +1173,137 @@ img {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .section-padding {
+    padding: 50px 0;
+  }
   .section-title {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  .section-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 28px;
+  }
+  .hero {
+    min-height: auto;
+    padding: 100px 0 50px;
+  }
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 6px 14px;
+    margin-bottom: 16px;
   }
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  .hero-actions {
+    gap: 10px;
+    margin-bottom: 28px;
   }
   .hero-features {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
+    margin-top: 28px;
+  }
+  .hero-feature {
+    padding: 14px;
+  }
+  .hero-feature .icon {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
   }
   .hero-stats {
-    gap: 24px;
+    gap: 16px;
+  }
+  .hero-stat .number {
+    font-size: 1.8rem;
+  }
+  .hero-stat .label {
+    font-size: 0.75rem;
   }
   .about-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
+    gap: 24px;
+  }
+  .about-card {
+    padding: 20px 16px;
   }
   .visi-misi-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .visi-card,
+  .misi-card {
+    padding: 24px 20px;
   }
   .keypoints-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .keypoint-card {
+    padding: 20px 16px;
   }
   .services-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+  .service-card {
+    padding: 22px 18px;
   }
   .badge-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .badge-item {
+    padding: 10px 8px;
+    font-size: 0.72rem;
   }
   .mitra-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .mitra-card {
+    padding: 20px 12px;
+  }
+  .mitra-card .initial {
+    width: 50px;
+    height: 50px;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
   }
   .location-info {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .location-detail {
+    padding: 20px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .footer {
+    padding: 40px 0 20px;
   }
 
   .nav-links {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 280px;
+    width: 260px;
     height: 100vh;
     background: rgba(10, 22, 40, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
-    padding: 80px 30px 30px;
-    gap: 6px;
+    padding: 70px 20px 20px;
+    gap: 4px;
     transition: var(--transition);
     border-left: 1px solid rgba(255, 255, 255, 0.06);
   }
@@ -1232,47 +1313,239 @@ img {
   }
 
   .nav-links a {
-    padding: 12px 16px;
-    font-size: 1rem;
+    padding: 10px 14px;
+    font-size: 0.92rem;
     width: 100%;
   }
 
   .nav-cta .btn {
-    padding: 8px 16px;
-    font-size: 0.75rem;
+    padding: 6px 12px;
+    font-size: 0.68rem;
   }
 
   .nav-hamburger {
     display: flex;
   }
 
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .page-header {
+    padding: 120px 0 50px;
+  }
   .page-header h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+  .page-header p {
+    font-size: 0.92rem;
   }
 
   .cta-section h2 {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
+  }
+  .cta-section p {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
   }
 
+  .btn {
+    padding: 10px 22px;
+    font-size: 0.82rem;
+  }
   .btn-lg {
-    padding: 14px 30px;
-    font-size: 0.9rem;
+    padding: 12px 24px;
+    font-size: 0.85rem;
+  }
+
+  .modal {
+    padding: 28px 20px 24px;
+  }
+  .modal-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+  .modal h3 {
+    font-size: 1.1rem;
+  }
+  .form-group input {
+    padding: 10px 14px;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  .section-padding {
+    padding: 36px 0;
+  }
+  .section-title {
+    font-size: 1.2rem;
+  }
+  .section-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-size: 1.4rem;
+  }
+  .hero-subtitle {
+    font-size: 0.88rem;
+  }
+  .hero-stat .number {
+    font-size: 1.5rem;
+  }
   .badge-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .badge-item {
+    padding: 8px 6px;
+    font-size: 0.68rem;
   }
   .keypoints-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
-  .nav-logo {
+  .keypoint-card {
+    padding: 16px 14px;
+  }
+  .keypoint-card .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .service-card {
+    padding: 18px 14px;
+  }
+  .service-card .icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  .mitra-grid {
+    gap: 10px;
+  }
+  .mitra-card {
+    padding: 14px 10px;
+  }
+  .mitra-card .initial {
+    width: 42px;
+    height: 42px;
     font-size: 0.85rem;
   }
-  .nav-logo .logo-icon {
-    width: 30px;
-    height: 30px;
+  .mitra-card h4 {
+    font-size: 0.82rem;
+  }
+  .mitra-card p {
     font-size: 0.7rem;
+  }
+  .nav-logo {
+    font-size: 0.78rem;
+    gap: 6px;
+  }
+  .nav-logo .logo-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 0.65rem;
+  }
+  .nav-cta .btn {
+    padding: 5px 10px;
+    font-size: 0.62rem;
+  }
+  .nav-hamburger span {
+    width: 20px;
+    height: 2px;
+  }
+  .page-header {
+    padding: 100px 0 36px;
+  }
+  .page-header h1 {
+    font-size: 1.35rem;
+  }
+  .cta-section h2 {
+    font-size: 1.15rem;
+  }
+  .footer-grid {
+    gap: 18px;
+  }
+  .footer {
+    padding: 30px 0 16px;
+  }
+  .footer-bottom {
+    font-size: 0.75rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  .btn-lg {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+  .modal {
+    padding: 22px 16px 20px;
+  }
+  .about-visual {
+    gap: 10px;
+  }
+  .about-card {
+    padding: 14px 12px;
+  }
+  .visi-card,
+  .misi-card {
+    padding: 18px 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0 10px;
+  }
+  .hero-title {
+    font-size: 1.2rem;
+  }
+  .hero-subtitle {
+    font-size: 0.82rem;
+  }
+  .badge-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+  }
+  .badge-item {
+    padding: 6px 4px;
+    font-size: 0.62rem;
+  }
+  .nav-logo {
+    font-size: 0.7rem;
+  }
+  .nav-logo .logo-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 0.55rem;
+  }
+  .nav-cta .btn {
+    padding: 4px 8px;
+    font-size: 0.55rem;
+  }
+  .nav-links {
+    width: 220px;
+    padding: 60px 16px 16px;
+  }
+  .section-title {
+    font-size: 1.1rem;
+  }
+  .page-header {
+    padding: 90px 0 28px;
+  }
+  .page-header h1 {
+    font-size: 1.2rem;
+  }
+  .hero-stat .number {
+    font-size: 1.3rem;
   }
 }
