@@ -399,6 +399,9 @@ function initWACTAButtons() {
   });
 
   document.querySelectorAll('.wa-link').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
     });
   });
 }

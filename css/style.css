@@ -763,7 +763,7 @@ img {
   gap: 12px;
 }
 
-.mitra-carousel .mitra-grid {
+.mitra-carousel .mitra-grid#institusiGrid {
   display: flex;
   gap: 16px;
   overflow-x: auto;

@@ -160,42 +160,46 @@
           Kami telah diakui dan menjalin kerja sama dengan lembaga-lembaga terkemuka berikut
         </p>
       </div>
-      <div class="mitra-grid" id="institusiGrid" style="grid-template-columns:repeat(4,1fr);">
-        <div class="mitra-card reveal">
-          <div class="logo-wrap"><img src="assets/Mitra/PUPR.svg" alt="PUPR"></div>
-          <h4>Direktorat Jenderal Bina Konstruksi</h4>
-          <p>Kementerian PUPR</p>
+      <div class="mitra-carousel" style="justify-content:center;">
+        <button class="carousel-btn carousel-prev" onclick="scrollMitra(-1)" aria-label="Sebelumnya"><i class="fas fa-chevron-left"></i></button>
+        <div class="mitra-grid" id="institusiGrid" style="display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:8px 4px;flex:1;-ms-overflow-style:none;scrollbar-width:none;">
+          <div class="mitra-card reveal">
+            <div class="logo-wrap"><img src="assets/Mitra/PUPR.svg" alt="PUPR"></div>
+            <h4>Direktorat Jenderal Bina Konstruksi</h4>
+            <p>Kementerian PUPR</p>
+          </div>
+          <div class="mitra-card reveal">
+            <div class="logo-wrap"><img src="assets/Mitra/kemenker.png" alt="Kemnaker"></div>
+            <h4>Kementerian Ketenagakerjaan</h4>
+            <p>Republik Indonesia</p>
+          </div>
+          <div class="mitra-card reveal">
+            <div class="logo-wrap"><img src="assets/Mitra/ESDM.jpg" alt="ESDM"></div>
+            <h4>Kementerian Energi dan Sumber Daya Mineral</h4>
+            <p>Republik Indonesia</p>
+          </div>
+          <div class="mitra-card reveal">
+            <div class="logo-wrap"><img src="assets/Mitra/iaf_logo.svg" alt="IAF"></div>
+            <h4>International Accreditation Forum</h4>
+            <p>Accreditation Body International</p>
+          </div>
+          <div class="mitra-card reveal">
+            <div class="logo-wrap"><img src="assets/Mitra/KAN.png" alt="KAN"></div>
+            <h4>Komite Akreditasi Nasional</h4>
+            <p>Akreditasi Lembaga Sertifikasi Indonesia</p>
+          </div>
+          <div class="mitra-card reveal">
+            <div class="logo-wrap"><img src="assets/Mitra/PS3M.png" alt="P3SM"></div>
+            <h4>Perkumpulan Profesi Penguji dan Sertifikasi Mutu Indonesia</h4>
+            <p>Lembaga Sertifikasi Profesi</p>
+          </div>
+          <div class="mitra-card reveal">
+            <div class="logo-wrap"><img src="assets/Mitra/BNSP.png" alt="BNSP"></div>
+            <h4>Badan Nasional Sertifikasi Profesi</h4>
+            <p>Standarisasi Kompetensi Kerja Indonesia</p>
+          </div>
         </div>
-        <div class="mitra-card reveal">
-          <div class="logo-wrap"><img src="assets/Mitra/kemenker.png" alt="Kemnaker"></div>
-          <h4>Kementerian Ketenagakerjaan</h4>
-          <p>Republik Indonesia</p>
-        </div>
-        <div class="mitra-card reveal">
-          <div class="logo-wrap"><img src="assets/Mitra/ESDM.jpg" alt="ESDM"></div>
-          <h4>Kementerian Energi dan Sumber Daya Mineral</h4>
-          <p>Republik Indonesia</p>
-        </div>
-        <div class="mitra-card reveal">
-          <div class="logo-wrap"><img src="assets/Mitra/iaf_logo.svg" alt="IAF"></div>
-          <h4>International Accreditation Forum</h4>
-          <p>Accreditation Body International</p>
-        </div>
-        <div class="mitra-card reveal">
-          <div class="logo-wrap"><img src="assets/Mitra/KAN.png" alt="KAN"></div>
-          <h4>Komite Akreditasi Nasional</h4>
-          <p>Akreditasi Lembaga Sertifikasi Indonesia</p>
-        </div>
-        <div class="mitra-card reveal">
-          <div class="logo-wrap"><img src="assets/Mitra/PS3M.png" alt="P3SM"></div>
-          <h4>Perkumpulan Profesi Penguji dan Sertifikasi Mutu Indonesia</h4>
-          <p>Lembaga Sertifikasi Profesi</p>
-        </div>
-        <div class="mitra-card reveal">
-          <div class="logo-wrap"><img src="assets/Mitra/BNSP.png" alt="BNSP"></div>
-          <h4>Badan Nasional Sertifikasi Profesi</h4>
-          <p>Standarisasi Kompetensi Kerja Indonesia</p>
-        </div>
+        <button class="carousel-btn carousel-next" onclick="scrollMitra(1)" aria-label="Selanjutnya"><i class="fas fa-chevron-right"></i></button>
       </div>
       <div class="text-center reveal" style="margin-top:40px;">
         <a href="mitra.html" class="btn btn-primary">
