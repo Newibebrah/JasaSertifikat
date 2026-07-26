@@ -809,7 +809,8 @@ img {
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 8px 12px;
+    scroll-padding-inline: 16px;
+    padding: 8px 0;
     flex-wrap: nowrap;
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -830,6 +831,8 @@ img {
     flex-wrap: nowrap;
     touch-action: pan-x;
     justify-content: center;
+    scroll-padding-inline: 16px;
+    padding: 0 0;
   }
   .services-grid.scroll-x > * {
     flex: 0 0 80%;
@@ -842,6 +845,8 @@ img {
     flex-wrap: nowrap;
     justify-content: center;
     touch-action: pan-x;
+    scroll-padding-inline: 16px;
+    padding: 0 0;
   }
   #institusiGrid.scroll-x > * {
     flex: 0 0 75%;
