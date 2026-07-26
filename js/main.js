@@ -399,9 +399,13 @@ function initWACTAButtons() {
   });
 
   document.querySelectorAll('.wa-link').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal();
     });
   });
+}
+
+function scrollMitra(dir) {
+  const grid = document.querySelector('.mitra-carousel .mitra-grid');
+  if (!grid) return;
+  const scrollAmount = grid.querySelector('.mitra-card')?.offsetWidth + 16 || 240;
+  grid.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
 }
