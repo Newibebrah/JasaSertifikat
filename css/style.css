@@ -1725,21 +1725,34 @@ img {
     text-align: center;
   }
   .btn-lg {
-    padding: 10px 20px;
-    font-size: 0.8rem;
+    padding: 10px 16px;
+    font-size: 0.78rem;
   }
   .modal {
     padding: 22px 16px 20px;
   }
   .about-visual {
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
   .about-card {
     padding: 14px 12px;
   }
+  .about-card .icon {
+    font-size: 1.4rem;
+  }
+  .about-card h4 {
+    font-size: 0.85rem;
+  }
+  .about-card p {
+    font-size: 0.75rem;
+  }
   .visi-card,
   .misi-card {
     padding: 18px 14px;
+  }
+  .service-cat-title {
+    font-size: 0.68rem;
   }
 }
 
@@ -1747,46 +1760,234 @@ img {
   .container {
     padding: 0 10px;
   }
+  .section-padding {
+    padding: 28px 0;
+  }
   .hero-title {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
   .hero-subtitle {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-stat .number {
+    font-size: 1.2rem;
+  }
+  .hero-stat .label {
+    font-size: 0.65rem;
+  }
+  .hero-features {
+    margin-top: 20px;
+  }
+  .hero-feature {
+    padding: 10px;
+  }
+  .hero-feature .icon {
+    font-size: 1rem;
+  }
+  .hero-feature h4 {
+    font-size: 0.7rem;
   }
   .badge-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 5px;
+    gap: 4px;
   }
   .badge-item {
-    padding: 6px 4px;
-    font-size: 0.62rem;
+    padding: 5px 4px;
+    font-size: 0.6rem;
   }
   .nav-logo {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
+    gap: 4px;
   }
   .nav-logo .logo-icon {
-    width: 22px;
-    height: 22px;
-    font-size: 0.55rem;
+    width: 20px;
+    height: 20px;
+    font-size: 0.5rem;
   }
   .nav-cta .btn {
-    padding: 4px 8px;
-    font-size: 0.55rem;
+    padding: 3px 7px;
+    font-size: 0.52rem;
+    gap: 4px;
   }
   .nav-links {
-    width: 220px;
-    padding: 60px 16px 16px;
+    width: 200px;
+    padding: 50px 14px 14px;
   }
   .section-title {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+  }
+  .section-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
   }
   .page-header {
-    padding: 90px 0 28px;
+    padding: 80px 0 24px;
   }
   .page-header h1 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
-  .hero-stat .number {
-    font-size: 1.3rem;
+  .page-header p {
+    font-size: 0.82rem;
+  }
+  .cta-section h2 {
+    font-size: 1.05rem;
+  }
+  .cta-section p {
+    font-size: 0.82rem;
+    margin-bottom: 16px;
+  }
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.75rem;
+  }
+  .btn-lg {
+    padding: 9px 16px;
+    font-size: 0.75rem;
+  }
+  .about-visual {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .about-card {
+    padding: 10px 8px;
+  }
+  .about-card .icon {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+  }
+  .about-card h4 {
+    font-size: 0.78rem;
+  }
+  .about-card p {
+    font-size: 0.7rem;
+  }
+  .visi-card,
+  .misi-card {
+    padding: 14px 12px;
+  }
+  .visi-card h3,
+  .misi-card h3 {
+    font-size: 1.1rem;
+  }
+  .visi-card p,
+  .misi-card ul li {
+    font-size: 0.82rem;
+  }
+  .keypoint-card {
+    padding: 12px 10px;
+  }
+  .keypoint-card .icon {
+    width: 40px;
+    height: 40px;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  .keypoint-card h4 {
+    font-size: 0.8rem;
+  }
+  .keypoint-card p {
+    font-size: 0.72rem;
+  }
+  .service-card {
+    padding: 14px 12px;
+  }
+  .service-card .icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .service-card h4 {
+    font-size: 0.82rem;
+  }
+  .service-card p {
+    font-size: 0.75rem;
+  }
+  .mitra-card {
+    padding: 12px 8px;
+  }
+  .mitra-card .initial {
+    width: 36px;
+    height: 36px;
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+  }
+  .mitra-card h4 {
+    font-size: 0.75rem;
+  }
+  .mitra-card p {
+    font-size: 0.65rem;
+  }
+  .location-detail {
+    padding: 14px;
+  }
+  .location-detail h3 {
+    font-size: 1rem;
+  }
+  .location-detail .info-item p {
+    font-size: 0.82rem;
+  }
+  .wa-modal-content {
+    padding: 18px 12px 16px;
+  }
+  .wa-modal-content h3 {
+    font-size: 1rem;
+  }
+  .wa-modal-desc {
+    font-size: 0.78rem;
+    margin-bottom: 14px;
+  }
+  .wa-modal-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .tujuan-chip span {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+  }
+  .service-chip {
+    font-size: 0.65rem;
+    padding: 3px 6px;
+  }
+  .form-group label {
+    font-size: 0.75rem;
+  }
+  .form-group input,
+  .wa-modal-content textarea {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+  .modal {
+    padding: 18px 12px 16px;
+  }
+  .footer {
+    padding: 24px 0 12px;
+  }
+  .footer-grid {
+    gap: 14px;
+  }
+  .footer-brand h3 {
+    font-size: 1rem;
+  }
+  .footer-brand p {
+    font-size: 0.78rem;
+  }
+  .footer-col h4 {
+    font-size: 0.78rem;
+    margin-bottom: 12px;
+  }
+  .footer-col ul li a {
+    font-size: 0.78rem;
   }
 }
