@@ -241,7 +241,7 @@ function injectWAModal() {
               </label>
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group" id="layananGroup">
             <label>Layanan yang Diminati <span class="required">*</span></label>
             <div class="service-selector" id="serviceSelector">
               <div class="service-category">
@@ -327,17 +327,35 @@ function initWACTAButtons() {
   function openModal() {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    toggleLayanan(false);
     setTimeout(() => document.getElementById('fieldNama')?.focus(), 100);
+  }
+
+  function toggleLayanan(show) {
+    const group = document.getElementById('layananGroup');
+    if (!group) return;
+    group.style.display = show ? 'block' : 'none';
+    if (!show) {
+      document.querySelectorAll('.service-chip').forEach(c => c.classList.remove('selected'));
+      const hidden = document.getElementById('fieldLayanan');
+      if (hidden) hidden.value = '';
+      const hint = document.getElementById('layananHint');
+      if (hint) hint.textContent = 'Klik layanan yang Anda butuhkan di atas';
+    }
   }
 
   function closeModal() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
     form?.reset();
-    document.querySelectorAll('.service-chip').forEach(c => c.classList.remove('selected'));
-    const hint = document.getElementById('layananHint');
-    if (hint) hint.textContent = 'Klik layanan yang Anda butuhkan di atas';
+    toggleLayanan(false);
   }
+
+  document.querySelectorAll('input[name="tujuan"]').forEach(radio => {
+    radio.addEventListener('change', function () {
+      toggleLayanan(this.value === 'Ingin Membeli / Menggunakan Jasa');
+    });
+  });
 
   closeBtn?.addEventListener('click', closeModal);
   batalBtn?.addEventListener('click', closeModal);
@@ -357,7 +375,7 @@ function initWACTAButtons() {
     if (!nama) return alert('Harap isi Nama Lengkap Anda.');
     if (!telepon || telepon.length < 10) return alert('Harap isi Nomor Telepon minimal 10 digit.');
     if (!tujuan) return alert('Pilih Tujuan Anda menghubungi kami.');
-    if (!layanan) return alert('Klik layanan yang Anda butuhkan.');
+    if (tujuan.value === 'Ingin Membeli / Menggunakan Jasa' && !layanan) return alert('Klik layanan yang Anda butuhkan.');
 
     const WA_NUMBER = '6283841213336';
     const now = new Date();
@@ -365,7 +383,9 @@ function initWACTAButtons() {
     const jam = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
     let msg = `Halo ARIL HIDAYAT, saya ${nama}.`;
     msg += `\n\n📌 Tujuan: ${tujuan.value}`;
-    msg += `\n📋 Layanan: ${layanan}`;
+    if (tujuan.value === 'Ingin Membeli / Menggunakan Jasa' && layanan) {
+      msg += `\n📋 Layanan: ${layanan}`;
+    }
     msg += `\n\n📞 No. Telepon: ${telepon}`;
     if (email) msg += `\n📧 Email: ${email}`;
     if (pesan) msg += `\n💬 Pesan: ${pesan}`;
