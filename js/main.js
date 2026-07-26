@@ -406,13 +406,11 @@ function initWACTAButtons() {
   });
 }
 
-function scrollMitra(dir) {
-  const grid = document.querySelector('.mitra-carousel .mitra-grid');
-  if (!grid) return;
-  const card = grid.querySelector('.mitra-card');
-  if (!card) return;
-  const cardWidth = card.offsetWidth;
-  const currentIndex = Math.round(grid.scrollLeft / cardWidth);
-  const targetIndex = Math.max(0, Math.min(grid.children.length - 1, currentIndex + dir));
-  grid.scrollLeft = targetIndex * cardWidth;
+function scrollCarousel(btn, dir) {
+  const scrollEl = btn.parentElement.querySelector('.scroll-x');
+  if (!scrollEl) return;
+  const child = scrollEl.querySelector(':scope > *');
+  if (!child) return;
+  const childWidth = child.offsetWidth + parseInt(getComputedStyle(scrollEl).gap) || child.offsetWidth;
+  scrollEl.scrollBy({ left: dir * childWidth, behavior: 'smooth' });
 }

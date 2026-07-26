@@ -756,62 +756,101 @@ img {
   gap: 20px;
 }
 
-.mitra-carousel {
+.carousel-scroll {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.mitra-carousel .mitra-grid#institusiGrid {
-  display: flex;
-  gap: 0;
-  overflow: hidden;
-  padding: 0;
+.carousel-scroll .scroll-x {
   flex: 1;
 }
 
-.mitra-carousel .mitra-grid::-webkit-scrollbar {
-  display: none;
-}
-
-.mitra-carousel .mitra-card {
-  flex: 0 0 100%;
-  padding: 32px 16px;
-  box-sizing: border-box;
-}
-
 .carousel-btn {
+  display: none;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 2px solid #E2E8F0;
   background: var(--text-light);
   color: var(--primary);
-  font-size: 1rem;
+  font-size: 0.9rem;
   cursor: pointer;
-  display: flex;
   align-items: center;
   justify-content: center;
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
 }
 
-.carousel-prev {
-  left: -4px;
+.carousel-btn.prev {
+  left: -6px;
 }
 
-.carousel-next {
-  right: -4px;
+.carousel-btn.next {
+  right: -6px;
 }
 
 .carousel-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
   box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+}
+
+@media (max-width: 768px) {
+  .carousel-btn {
+    display: flex;
+  }
+  .carousel-scroll .scroll-x {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 8px 4px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .carousel-scroll .scroll-x::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel-scroll .scroll-x > * {
+    flex: 0 0 75%;
+    scroll-snap-align: start;
+  }
+  .services-grid.scroll-x {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+  }
+  .services-grid.scroll-x > * {
+    flex: 0 0 75%;
+  }
+  .mitra-grid.scroll-x {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+  }
+  .mitra-grid.scroll-x > * {
+    flex: 0 0 65%;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-scroll .scroll-x > *,
+  .services-grid.scroll-x > * {
+    flex: 0 0 82%;
+  }
+  .mitra-grid.scroll-x > * {
+    flex: 0 0 75%;
+  }
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.75rem;
+  }
 }
 
 .mitra-card {
@@ -1588,11 +1627,6 @@ img {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
-  .carousel-btn {
-    width: 34px;
-    height: 34px;
-    font-size: 0.85rem;
-  }
   .mitra-card {
     padding: 20px 12px;
   }
@@ -1759,11 +1793,6 @@ img {
   }
   .mitra-grid {
     gap: 10px;
-  }
-  .carousel-btn {
-    width: 28px;
-    height: 28px;
-    font-size: 0.7rem;
   }
   .mitra-card {
     padding: 14px 10px;
