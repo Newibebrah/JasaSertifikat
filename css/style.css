@@ -810,6 +810,7 @@ img {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding: 8px 4px;
+    flex-wrap: nowrap;
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
@@ -824,16 +825,19 @@ img {
     display: flex;
     gap: 14px;
     overflow-x: auto;
+    flex-wrap: nowrap;
   }
   .services-grid.scroll-x > * {
     flex: 0 0 75%;
   }
-  .mitra-grid.scroll-x {
+  #institusiGrid.scroll-x {
     display: flex;
     gap: 12px;
     overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
   }
-  .mitra-grid.scroll-x > * {
+  #institusiGrid.scroll-x > * {
     flex: 0 0 65%;
   }
 }
@@ -843,7 +847,7 @@ img {
   .services-grid.scroll-x > * {
     flex: 0 0 82%;
   }
-  .mitra-grid.scroll-x > * {
+  #institusiGrid.scroll-x > * {
     flex: 0 0 75%;
   }
   .carousel-btn {
