@@ -173,6 +173,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 
 .nav-logo {
@@ -1705,7 +1706,7 @@ img {
     font-size: 0.7rem;
   }
   .nav-logo {
-    font-size: 1.8rem;
+    font-size: 1rem;
     gap: 6px;
   }
   .nav-hamburger span {
@@ -1796,7 +1797,7 @@ img {
     margin-top: 20px;
   }
   .nav-logo {
-    font-size: 1.1rem;
+    font-size: 0.85rem;
     gap: 4px;
   }
   .hero-feature {
@@ -1817,7 +1818,7 @@ img {
     font-size: 0.6rem;
   }
   .nav-logo {
-    font-size: 1.3rem;
+    font-size: 0.9rem;
     gap: 4px;
   }
   .nav-links {
