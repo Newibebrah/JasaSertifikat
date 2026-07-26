@@ -813,6 +813,7 @@ img {
     flex-wrap: nowrap;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    touch-action: pan-x;
   }
   .carousel-scroll .scroll-x::-webkit-scrollbar {
     display: none;
@@ -826,6 +827,7 @@ img {
     gap: 14px;
     overflow-x: auto;
     flex-wrap: nowrap;
+    touch-action: pan-x;
   }
   .services-grid.scroll-x > * {
     flex: 0 0 75%;
@@ -836,6 +838,7 @@ img {
     overflow-x: auto;
     flex-wrap: nowrap;
     justify-content: flex-start;
+    touch-action: pan-x;
   }
   #institusiGrid.scroll-x > * {
     flex: 0 0 65%;
