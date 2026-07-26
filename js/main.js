@@ -243,8 +243,18 @@ function injectWAModal() {
           </div>
           <div class="form-group">
             <label>Layanan yang Diminati <span class="required">*</span></label>
-            <input type="text" id="fieldLayanan" placeholder="Contoh: Sertifikasi K3 Konstruksi, SBU, dll." required>
-            <small class="field-hint">Tulis layanan spesifik yang Anda butuhkan</small>
+            <div class="service-selector" id="serviceSelector">
+              <div class="service-category">
+                <h4 class="service-cat-title">Sertifikasi Profesi</h4>
+                <div class="service-chips" data-category="profesi"></div>
+              </div>
+              <div class="service-category">
+                <h4 class="service-cat-title">Sertifikasi Badan Usaha</h4>
+                <div class="service-chips" data-category="badan-usaha"></div>
+              </div>
+            </div>
+            <input type="hidden" id="fieldLayanan" value="">
+            <small class="field-hint" id="layananHint">Klik layanan yang Anda butuhkan di atas</small>
           </div>
           <div class="form-group">
             <label>Pesan Tambahan <span class="optional">(opsional)</span></label>
@@ -261,6 +271,49 @@ function injectWAModal() {
     </div>
   `;
   document.body.insertAdjacentHTML('beforeend', html);
+  renderServiceChips();
+}
+
+const WA_SERVICES = {
+  'Sertifikasi Profesi': [
+    'SKK Konstruksi', 'POP / POM / POU', 'Welder', 'TOT', 'P3K',
+    'Serkom', 'K3 Laboratorium', 'Scaffolding', 'Manajemen SDM',
+    'Fire Officer', 'K3 Umum', 'K3 Konstruksi', 'Rigger',
+    'Ruang Terbatas', 'Hub. Industrial', 'K3 Listrik', 'Mobile Crane',
+    'SIO', 'Admin Perkantoran', 'K3 Pertambangan', 'Auditor SMK3',
+    'Forklift', 'Damkar D', 'First Aid'
+  ],
+  'Sertifikasi Badan Usaha': [
+    'SBU Konstruksi', 'ISO Akreditasi IAF', 'BPOM', 'SNI',
+    'SBU Spesialis', 'ISO Akreditasi KAN', 'Akuntan Publik', 'TKDN',
+    'SBU Konsultan', 'ISO Non Akreditasi', 'SKUP Migas', 'SIMPK',
+    'SBU JPTL', 'Sertifikat Standar', 'CSMS', 'LKPM',
+    'Pendirian PT/CV', 'SMK3', 'PKP', 'PKKPR'
+  ]
+};
+
+function renderServiceChips() {
+  const containers = document.querySelectorAll('.service-chips');
+  if (!containers.length) return;
+  containers.forEach(container => {
+    const cat = container.dataset.category;
+    const services = cat === 'profesi' ? WA_SERVICES['Sertifikasi Profesi'] : WA_SERVICES['Sertifikasi Badan Usaha'];
+    container.innerHTML = services.map(s =>
+      `<div class="service-chip" data-value="${s}">${s}</div>`
+    ).join('');
+  });
+
+  document.querySelectorAll('.service-chip').forEach(chip => {
+    chip.addEventListener('click', function () {
+      const parent = this.closest('.service-chips');
+      parent.querySelectorAll('.service-chip').forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      const hidden = document.getElementById('fieldLayanan');
+      if (hidden) hidden.value = this.dataset.value;
+      const hint = document.getElementById('layananHint');
+      if (hint) hint.textContent = '✓ ' + this.dataset.value;
+    });
+  });
 }
 
 function initWACTAButtons() {
@@ -281,6 +334,9 @@ function initWACTAButtons() {
     modal.classList.remove('active');
     document.body.style.overflow = '';
     form?.reset();
+    document.querySelectorAll('.service-chip').forEach(c => c.classList.remove('selected'));
+    const hint = document.getElementById('layananHint');
+    if (hint) hint.textContent = 'Klik layanan yang Anda butuhkan di atas';
   }
 
   closeBtn?.addEventListener('click', closeModal);
@@ -301,7 +357,7 @@ function initWACTAButtons() {
     if (!nama) return alert('Harap isi Nama Lengkap Anda.');
     if (!telepon || telepon.length < 10) return alert('Harap isi Nomor Telepon minimal 10 digit.');
     if (!tujuan) return alert('Pilih Tujuan Anda menghubungi kami.');
-    if (!layanan) return alert('Harap isi Layanan yang Anda minati.');
+    if (!layanan) return alert('Klik layanan yang Anda butuhkan.');
 
     const WA_NUMBER = '6283841213336';
     const now = new Date();

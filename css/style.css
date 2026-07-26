@@ -1278,6 +1278,62 @@ img {
 .tujuan-chip span:hover {
   border-color: var(--accent);
 }
+.service-selector {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1.5px solid #E2E8F0;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  background: var(--light);
+}
+.service-selector::-webkit-scrollbar {
+  width: 4px;
+}
+.service-selector::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 2px;
+}
+.service-category {
+  margin-bottom: 8px;
+}
+.service-category:last-child {
+  margin-bottom: 0;
+}
+.service-cat-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.service-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.service-chip {
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #475569;
+  background: #fff;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+.service-chip:hover {
+  border-color: var(--accent);
+  color: var(--primary);
+}
+.service-chip.selected {
+  border-color: var(--accent);
+  background: #FFFBEB;
+  color: var(--primary);
+  font-weight: 600;
+}
 .wa-modal-content textarea {
   width: 100%;
   padding: 12px 16px;
@@ -1309,6 +1365,14 @@ img {
   .tujuan-chip span {
     padding: 10px 14px;
     font-size: 0.82rem;
+  }
+  .service-selector {
+    max-height: 160px;
+    padding: 8px 10px;
+  }
+  .service-chip {
+    font-size: 0.7rem;
+    padding: 4px 8px;
   }
 }
 @media (max-width: 380px) {
