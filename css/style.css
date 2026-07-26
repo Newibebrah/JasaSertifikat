@@ -462,22 +462,26 @@ img {
 
 /* ===== ABOUT SECTION ===== */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  display: flex;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
 }
 
-.about-content p {
-  color: #475569;
+.about-content {
+  flex: 1 1 48%;
+  min-width: 320px;
   margin-bottom: 20px;
-  font-size: 1rem;
 }
 
 .about-visual {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  flex: 1 1 48%;
+  min-width: 320px;
+  margin-bottom: 20px;
 }
 
 .about-card {
