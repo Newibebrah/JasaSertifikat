@@ -1,1186 +1,288 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PT. YASH PIJAR ARTEKSI - Jasa Sertifikasi Terpercaya</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      color: #1E293B;
-      background: #F8FAFC;
-      line-height: 1.6;
-      overflow-x: hidden;
-      cursor: default;
-    }
-    a { text-decoration: none; color: inherit; }
-    ::selection { background: #F59E0B; color: #0A1628; }
-
-    :root {
-      --navy: #0A1628;
-      --navy2: #1E3A5F;
-      --gold: #F59E0B;
-      --gold2: #D97706;
-      --glass: rgba(255,255,255,0.05);
-      --glass2: rgba(255,255,255,0.1);
-    }
-
-    .cursor-glow {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.3s ease;
-      will-change: transform;
-    }
-
-    .progress-bar {
-      position: fixed;
-      top: 0; left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #F59E0B, #FBBF24, #F59E0B);
-      background-size: 200% 100%;
-      z-index: 10001;
-      width: 0%;
-      transition: width 0.1s linear;
-      animation: shimmer 2s linear infinite;
-    }
-    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 10000;
-      padding: 16px 0;
-      background: rgba(10,22,40,0.2);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.4s ease;
-    }
-    nav.scrolled {
-      background: rgba(10,22,40,0.85);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border-bottom-color: rgba(245,158,11,0.15);
-    }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: 0.5px;
-    }
-    .nav-logo span { color: var(--gold); }
-
-    .nav-btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #0A1628;
-      background: #F59E0B;
-      overflow: hidden;
-      z-index: 1;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .nav-btn::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 12px;
-      background: conic-gradient(from var(--angle, 0deg), transparent 60%, #F59E0B, #FBBF24, #F59E0B);
-      z-index: -2;
-      animation: rotate-border 3s linear infinite;
-    }
-    .nav-btn::after {
-      content: '';
-      position: absolute;
-      inset: 2px;
-      border-radius: 8px;
-      background: #F59E0B;
-      z-index: -1;
-    }
-    .nav-btn:hover { transform: translateY(-2px) scale(1.02); background: #D97706; box-shadow: 0 8px 25px rgba(245,158,11,0.35); }
-    @property --angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
-    @keyframes rotate-border { to { --angle: 360deg; } }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 120px 0 80px;
-    }
-    .hero-bg {
-      position: absolute;
-      inset: -50%;
-      z-index: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(30,58,95,0.6) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(245,158,11,0.12) 0%, transparent 40%),
-        radial-gradient(ellipse at 50% 80%, rgba(10,22,40,1) 0%, transparent 60%),
-        linear-gradient(135deg, #0A1628 0%, #1E3A5F 50%, #0A1628 100%);
-      animation: mesh-move 20s ease-in-out infinite alternate;
-    }
-    @keyframes mesh-move {
-      0% { transform: translate(0,0) scale(1); }
-      33% { transform: translate(2%,-1%) scale(1.02); }
-      66% { transform: translate(-1%,2%) scale(0.98); }
-      100% { transform: translate(1%,-1%) scale(1.01); }
-    }
-    .hero-dots {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
-      -webkit-mask: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
-    }
-
-    .float-shape {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.3;
-      z-index: 1;
-      pointer-events: none;
-    }
-    .float-shape-1 {
-      width: 300px; height: 300px;
-      background: rgba(245,158,11,0.15);
-      top: 15%; left: 10%;
-      animation: float1 12s ease-in-out infinite;
-    }
-    .float-shape-2 {
-      width: 200px; height: 200px;
-      background: rgba(30,58,95,0.4);
-      bottom: 20%; right: 15%;
-      animation: float2 10s ease-in-out infinite;
-    }
-    .float-shape-3 {
-      width: 150px; height: 150px;
-      background: rgba(245,158,11,0.1);
-      top: 40%; right: 30%;
-      animation: float3 8s ease-in-out infinite;
-    }
-    @keyframes float1 {
-      0%,100% { transform: translate(0,0) scale(1); }
-      50% { transform: translate(30px,-40px) scale(1.1); }
-    }
-    @keyframes float2 {
-      0%,100% { transform: translate(0,0) scale(1); }
-      50% { transform: translate(-20px,30px) scale(1.15); }
-    }
-    @keyframes float3 {
-      0%,100% { transform: translate(0,0) scale(1); }
-      50% { transform: translate(20px,20px) scale(0.9); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      text-align: center;
-      width: 100%;
-    }
-    .hero-badge {
-      display: inline-block;
-      background: rgba(245,158,11,0.12);
-      border: 1px solid rgba(245,158,11,0.25);
-      padding: 6px 20px;
-      border-radius: 50px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--gold);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    .hero-title {
-      font-size: clamp(2.2rem, 6vw, 4.2rem);
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.1;
-      margin-bottom: 20px;
-      min-height: 1.2em;
-    }
-    .hero-title .highlight {
-      background: linear-gradient(135deg, #F59E0B, #FBBF24);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-title .cursor-blink {
-      display: inline-block;
-      width: 3px;
-      height: 1em;
-      background: var(--gold);
-      margin-left: 2px;
-      animation: blink 0.8s step-end infinite;
-      vertical-align: text-bottom;
-    }
-    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: #CBD5E1;
-      max-width: 600px;
-      margin: 0 auto 48px;
-      font-weight: 400;
-    }
-
-    .hero-stats {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      margin-bottom: 48px;
-      flex-wrap: wrap;
-    }
-    .hero-stat {
-      text-align: center;
-    }
-    .hero-stat-num {
-      font-size: 2.5rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, #F59E0B, #FBBF24);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .hero-stat-label {
-      font-size: 0.8rem;
-      color: #94A3B8;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 4px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 900px;
-      margin: 0 auto 48px;
-      perspective: 1000px;
-    }
-    .hero-card {
-      background: var(--glass);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 32px 20px;
-      text-align: center;
-      color: #fff;
-      transition: transform 0.1s ease;
-      transform-style: preserve-3d;
-      will-change: transform;
-    }
-    .hero-card-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(245,158,11,0.05));
-      border: 1px solid rgba(245,158,11,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 1.5rem;
-      color: var(--gold);
-    }
-    .hero-card h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .hero-card p {
-      font-size: 0.8rem;
-      color: #CBD5E1;
-    }
-
-    .hero-cta {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: #F59E0B;
-      color: #0A1628;
-      padding: 18px 40px;
-      border-radius: 14px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: pulse-cta 2.5s ease-in-out infinite;
-      z-index: 1;
-      overflow: hidden;
-    }
-    .hero-cta::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #D97706;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      border-radius: 14px;
-      z-index: -1;
-    }
-    .hero-cta:hover::after { opacity: 1; }
-    .hero-cta:hover { transform: translateY(-3px) scale(1.02); }
-    .hero-cta i { font-size: 1.3rem; position: relative; z-index: 1; color: #0A1628; }
-    .hero-cta span { position: relative; z-index: 1; }
-    @keyframes pulse-cta {
-      0%,100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.4), 0 8px 30px rgba(245,158,11,0.25); }
-      50% { box-shadow: 0 0 0 16px rgba(245,158,11,0), 0 8px 30px rgba(245,158,11,0.35); }
-    }
-
-    .section {
-      padding: 100px 0;
-      position: relative;
-    }
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .section-label {
-      display: inline-block;
-      background: rgba(245,158,11,0.1);
-      border: 1px solid rgba(245,158,11,0.2);
-      padding: 4px 16px;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      font-weight: 800;
-      margin-bottom: 16px;
-      color: #1E293B;
-    }
-    .section-desc {
-      color: #64748B;
-      max-width: 600px;
-      font-size: 1rem;
-      margin-bottom: 48px;
-    }
-    .text-center { text-align: center; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-
-    .glass-card {
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(30,58,95,0.2);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 8px 32px rgba(10,22,40,0.1);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: center;
-    }
-    .about-icon-box {
-      width: 80px;
-      height: 80px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05));
-      border: 1px solid rgba(245,158,11,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      color: var(--gold);
-      margin-bottom: 24px;
-    }
-    .about-text p {
-      color: #475569;
-      font-size: 1.05rem;
-      line-height: 1.9;
-    }
-    .about-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .about-shape {
-      position: relative;
-      width: 300px;
-      height: 300px;
-    }
-    .about-shape-ring {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(245,158,11,0.15);
-      animation: ring-rotate 8s linear infinite;
-    }
-    .about-shape-ring:nth-child(1) { width: 100%; height: 100%; top: 0; left: 0; }
-    .about-shape-ring:nth-child(2) { width: 75%; height: 75%; top: 12.5%; left: 12.5%; animation-duration: 6s; animation-direction: reverse; }
-    .about-shape-ring:nth-child(3) { width: 50%; height: 50%; top: 25%; left: 25%; animation-duration: 4s; }
-    .about-center-icon {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px; height: 60px;
-      background: linear-gradient(135deg, var(--gold), var(--gold2));
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #0A1628;
-      font-size: 1.5rem;
-      box-shadow: 0 0 40px rgba(245,158,11,0.3);
-    }
-    @keyframes ring-rotate { to { transform: rotate(360deg); } }
-
-    .stagger-item {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .stagger-item.visible { opacity: 1; transform: translateY(0); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-    }
-    .service-badge {
-      background: #FFFFFF;
-      border: 1px solid rgba(30,58,95,0.2);
-      border-radius: 12px;
-      padding: 16px 14px;
-      text-align: center;
-      font-weight: 600;
-      font-size: 0.82rem;
-      color: #1E293B;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      cursor: default;
-      position: relative;
-      overflow: hidden;
-    }
-    .service-badge::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: #1E3A5F;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      border-radius: 12px;
-    }
-    .service-badge:hover {
-      transform: scale(1.05);
-      border-color: #F59E0B;
-      color: #FFFFFF;
-      box-shadow: 0 8px 30px rgba(245,158,11,0.15);
-    }
-    .service-badge:hover::before { opacity: 1; }
-    .service-badge span { position: relative; z-index: 1; }
-
-    .location-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 40px;
-    }
-    .loc-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
-      align-items: flex-start;
-    }
-    .loc-icon {
-      width: 44px;
-      height: 44px;
-      flex-shrink: 0;
-      border-radius: 12px;
-      background: rgba(245,158,11,0.1);
-      border: 1px solid rgba(245,158,11,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--gold);
-      font-size: 1.1rem;
-    }
-    .loc-icon.shake {
-      animation: shake 2s ease-in-out infinite;
-    }
-    @keyframes shake {
-      0%,100% { transform: rotate(0); }
-      2% { transform: rotate(-8deg); }
-      4% { transform: rotate(8deg); }
-      6% { transform: rotate(-5deg); }
-      8% { transform: rotate(5deg); }
-      10% { transform: rotate(0); }
-    }
-    .loc-text h4 { font-size: 0.95rem; font-weight: 600; color: #1E293B; margin-bottom: 4px; }
-    .loc-text p { color: #64748B; font-size: 0.9rem; line-height: 1.5; }
-    .loc-map {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(30,58,95,0.2);
-    }
-    .loc-map iframe { width: 100%; height: 320px; border: 0; display: block; }
-
-    .cta-parallax {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #0A1628, #1E3A5F);
-    }
-    .cta-parallax::before {
-      content: '';
-      position: absolute;
-      inset: -20%;
-      background:
-        radial-gradient(ellipse at 30% 50%, rgba(245,158,11,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 50%, rgba(245,158,11,0.05) 0%, transparent 50%);
-      animation: parallax-drift 10s ease-in-out infinite alternate;
-      will-change: transform;
-    }
-    @keyframes parallax-drift {
-      0% { transform: translate(0,0); }
-      100% { transform: translate(-2%,2%); }
-    }
-    .cta-inner {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 80px 0;
-    }
-    .cta-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 900;
-      margin-bottom: 12px;
-      background: linear-gradient(135deg, #F59E0B, #FBBF24, #F59E0B);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      animation: gradient-shift 3s ease infinite;
-    }
-    @keyframes gradient-shift {
-      0%,100% { background-position: 0% center; }
-      50% { background-position: 100% center; }
-    }
-    .cta-sub {
-      color: #CBD5E1;
-      font-size: 1.1rem;
-      margin-bottom: 36px;
-    }
-
-    .ripple-btn {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: #F59E0B;
-      color: #0A1628;
-      padding: 20px 48px;
-      border-radius: 14px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      border: none;
-      outline: none;
-    }
-    .ripple-btn i { color: #0A1628; }
-    .ripple-btn:hover { transform: translateY(-3px) scale(1.02); background: #D97706; box-shadow: 0 12px 40px rgba(245,158,11,0.3); }
-    .ripple-btn .ripple {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      transform: scale(0);
-      animation: ripple-effect 0.6s linear;
-      pointer-events: none;
-    }
-    @keyframes ripple-effect {
-      to { transform: scale(4); opacity: 0; }
-    }
-
-    footer {
-      background: #0A1628;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      padding: 48px 0 32px;
-      position: relative;
-    }
-    footer::before {
-      content: '';
-      position: absolute;
-      top: -1px; left: 10%; right: 10%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #1E3A5F, #F59E0B, transparent);
-      background-size: 200% 100%;
-      animation: footer-glow 3s linear infinite;
-    }
-    @keyframes footer-glow {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .footer-brand h3 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .footer-brand h3 span { color: var(--gold); }
-    .footer-brand p { color: #94A3B8; font-size: 0.85rem; line-height: 1.7; }
-    .footer-col h4 {
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-    .footer-col a {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #94A3B8;
-      font-size: 0.85rem;
-      margin-bottom: 10px;
-      transition: color 0.3s ease;
-    }
-    .footer-col a:hover { color: var(--gold); }
-    .footer-col a i { width: 16px; }
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 32px auto 0;
-      padding: 20px 24px 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      text-align: center;
-      color: #94A3B8;
-      font-size: 0.8rem;
-    }
-
-    @media (max-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(3, 1fr); }
-      .about-grid { grid-template-columns: 1fr; gap: 32px; }
-      .about-visual { order: -1; }
-    }
-    @media (max-width: 768px) {
-      nav { padding: 10px 0; }
-      .nav-logo { font-size: 0.82rem; }
-      .nav-btn { padding: 7px 14px; font-size: 0.75rem; gap: 6px; }
-      .nav-btn span.nav-btn-text { display: none; }
-      .hero { padding: 90px 0 50px; min-height: auto; }
-      .hero-badge { font-size: 0.65rem; padding: 4px 14px; margin-bottom: 16px; }
-      .hero-title { font-size: clamp(1.6rem, 5vw, 2rem); margin-bottom: 12px; min-height: auto; }
-      .hero-sub { font-size: 0.9rem; margin: 0 auto 28px; }
-      .hero-stats { gap: 24px; margin-bottom: 28px; }
-      .hero-stat-num { font-size: 1.6rem; }
-      .hero-stat-label { font-size: 0.65rem; letter-spacing: 0.5px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 14px; max-width: 340px; margin-bottom: 28px; }
-      .hero-card { padding: 20px 14px; }
-      .hero-card-icon { width: 40px; height: 40px; font-size: 1.1rem; margin-bottom: 10px; }
-      .hero-card h3 { font-size: 0.8rem; }
-      .hero-card p { font-size: 0.7rem; }
-      .hero-cta { padding: 14px 22px; font-size: 0.8rem; gap: 8px; border-radius: 10px; }
-      .hero-cta i { font-size: 1rem; }
-      .float-shape { display: none; }
-      .section { padding: 48px 0; }
-      .section-title { font-size: 1.4rem; margin-bottom: 10px; }
-      .section-desc { font-size: 0.85rem; margin-bottom: 28px; }
-      .section-label { font-size: 0.65rem; padding: 3px 12px; margin-bottom: 8px; }
-      .glass-card { padding: 24px; }
-      .about-icon-box { width: 56px; height: 56px; font-size: 1.4rem; margin-bottom: 16px; border-radius: 14px; }
-      .about-text p { font-size: 0.9rem; }
-      .about-shape { width: 140px; height: 140px; }
-      .about-shape-ring { border-width: 0; }
-      .about-center-icon { width: 44px; height: 44px; font-size: 1.1rem; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); gap: 6px; }
-      .service-badge { padding: 10px 8px; font-size: 0.72rem; border-radius: 8px; }
-      .location-grid { grid-template-columns: 1fr; gap: 24px; }
-      .loc-item { gap: 12px; margin-bottom: 14px; }
-      .loc-icon { width: 36px; height: 36px; font-size: 0.9rem; }
-      .loc-text h4 { font-size: 0.85rem; }
-      .loc-text p { font-size: 0.8rem; }
-      .loc-map iframe { height: 220px; }
-      .cta-inner { padding: 48px 0; }
-      .cta-title { font-size: 1.5rem; }
-      .cta-sub { font-size: 0.9rem; margin-bottom: 24px; }
-      .ripple-btn { padding: 14px 28px; font-size: 0.85rem; gap: 8px; border-radius: 10px; }
-      .ripple-btn i { font-size: 1rem; }
-      .footer-grid { grid-template-columns: 1fr; gap: 20px; }
-      .footer { padding: 32px 0 24px; }
-      .footer-brand h3 { font-size: 1rem; }
-      .footer-brand p { font-size: 0.78rem; }
-      .footer-col h4 { font-size: 0.82rem; margin-bottom: 10px; }
-      .footer-col a { font-size: 0.78rem; }
-    }
-    @media (max-width: 480px) {
-      .nav-logo { font-size: 0.72rem; }
-      .nav-btn { padding: 6px 10px; font-size: 0.7rem; }
-      .hero { padding: 80px 0 40px; }
-      .hero-title { font-size: 1.3rem; }
-      .hero-sub { font-size: 0.8rem; margin-bottom: 20px; }
-      .hero-stats { gap: 16px; margin-bottom: 20px; }
-      .hero-stat-num { font-size: 1.3rem; }
-      .hero-stat-label { font-size: 0.6rem; }
-      .hero-grid { gap: 10px; max-width: 300px; margin-bottom: 20px; }
-      .hero-card { padding: 14px 10px; }
-      .hero-card-icon { width: 32px; height: 32px; font-size: 0.9rem; }
-      .hero-cta { padding: 12px 18px; font-size: 0.72rem; gap: 6px; }
-      .hero-cta i { font-size: 0.85rem; }
-      .hero-dots { display: none; }
-      .section { padding: 36px 0; }
-      .section-title { font-size: 1.2rem; }
-      .section-desc { font-size: 0.78rem; margin-bottom: 20px; }
-      .glass-card { padding: 18px; border-radius: 14px; }
-      .about-text p { font-size: 0.82rem; }
-      .about-shape { width: 100px; height: 100px; }
-      .about-center-icon { width: 36px; height: 36px; font-size: 0.9rem; border-radius: 10px; }
-      .services-grid { grid-template-columns: 1fr 1fr; gap: 5px; }
-      .service-badge { padding: 8px 6px; font-size: 0.65rem; border-radius: 6px; }
-      .location-grid { gap: 16px; }
-      .loc-icon { width: 30px; height: 30px; font-size: 0.75rem; }
-      .loc-text h4 { font-size: 0.78rem; }
-      .loc-text p { font-size: 0.72rem; }
-      .loc-map iframe { height: 180px; }
-      .cta-inner { padding: 36px 0; }
-      .cta-title { font-size: 1.2rem; }
-      .cta-sub { font-size: 0.8rem; margin-bottom: 18px; }
-      .ripple-btn { padding: 12px 20px; font-size: 0.75rem; gap: 6px; border-radius: 8px; }
-      .ripple-btn i { font-size: 0.85rem; }
-      .footer-grid { gap: 14px; }
-      .footer { padding: 24px 0 18px; }
-      .footer-brand h3 { font-size: 0.85rem; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PT. Yash Pijar Arteksi - Jasa Sertifikasi Terpercaya</title>
+  <meta name="description" content="PT. Yash Pijar Arteksi adalah perusahaan jasa sertifikasi profesi dan badan usaha terpercaya di Indonesia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div class="cursor-glow" id="cursorGlow"></div>
-  <div class="progress-bar" id="progressBar"></div>
-
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#" class="nav-logo">PT. YASH PIJAR <span>ARTEKSI</span></a>
-      <a href="https://wa.me/6283841213336?text=Halo%20ARIL%20HIDAYAT%2C%20saya%20tertarik%20dengan%20jasa%20sertifikasi%20dan%20perizinan%20yang%20ditawarkan.%20Saya%20ingin%20konsultasi." target="_blank" class="nav-btn">
-        <i class="fab fa-whatsapp"></i>
-        <span class="nav-btn-text">Hubungi WhatsApp</span>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">YP</span>
+        PT. YASH PIJAR ARTEKSI
       </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="profil.html">Profil</a>
+        <a href="layanan.html">Layanan</a>
+        <a href="mitra.html">Mitra</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://wa.me/6283841213336?text=Halo%20ARIL%20HIDAYAT%2C%20saya%20tertarik%20dengan%20jasa%20sertifikasi%20dan%20perizinan%20yang%20ditawarkan.%20Saya%20ingin%20konsultasi." target="_blank" class="btn btn-primary wa-link">
+          <i class="fab fa-whatsapp"></i> Hubungi WhatsApp
+        </a>
+      </div>
+      <button class="nav-hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
 
-  <section class="hero" id="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-dots"></div>
-    <div class="float-shape float-shape-1"></div>
-    <div class="float-shape float-shape-2"></div>
-    <div class="float-shape float-shape-3"></div>
-
-    <div class="hero-content">
-      <div class="hero-badge">PT. YASH PIJAR ARTEKSI</div>
-
-      <h1 class="hero-title" id="heroTitle">
-        <span class="highlight">JASA SERTIFIKASI</span> TERPERCAYA
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-particles">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+    <div class="container">
+      <div class="hero-badge">
+        <i class="fas fa-shield-halved"></i> Terpercaya Sejak 2020
+      </div>
+      <h1 class="hero-title">
+        <span id="typing-text"></span><span class="cursor"></span>
       </h1>
-
-      <p class="hero-sub">Solusi Profesional untuk Sertifikasi dan Perizinan Usaha Anda</p>
-
+      <p class="hero-subtitle">
+        Solusi Profesional untuk Sertifikasi dan Perizinan Usaha Anda
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/6283841213336?text=Halo%20ARIL%20HIDAYAT%2C%20saya%20tertarik%20dengan%20jasa%20sertifikasi%20dan%20perizinan%20yang%20ditawarkan.%20Saya%20ingin%20konsultasi." target="_blank" class="btn btn-primary btn-lg btn-pulse wa-link">
+          <i class="fab fa-whatsapp"></i> KONSULTASI GRATIS VIA WHATSAPP
+        </a>
+        <a href="layanan.html" class="btn btn-outline btn-lg">
+          <i class="fas fa-arrow-right"></i> Lihat Layanan
+        </a>
+      </div>
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="hero-stat-num"><span id="countProfesi">0</span>+</div>
-          <div class="hero-stat-label">Layanan Profesi</div>
+          <div class="number"><span class="counter" data-target="24">0</span></div>
+          <div class="label">Layanan Profesi</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num"><span id="countBadanUsaha">0</span>+</div>
-          <div class="hero-stat-label">Layanan Badan Usaha</div>
+          <div class="number"><span class="counter" data-target="24">0</span></div>
+          <div class="label">Layanan Badan Usaha</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num">100%</div>
-          <div class="hero-stat-label">Terpercaya</div>
+          <div class="number"><span class="counter" data-target="5000">0</span></div>
+          <div class="label">Klien Terpercaya</div>
         </div>
       </div>
-
-      <div class="hero-grid" id="tiltGrid">
-        <div class="hero-card tilt-card">
-          <div class="hero-card-icon"><i class="fas fa-rocket"></i></div>
-          <h3>PROSES CEPAT &amp; TERPERCAYA</h3>
-          <p>Pengurusan cepat tanpa birokrasi rumit</p>
+      <div class="hero-features">
+        <div class="hero-feature reveal">
+          <div class="icon"><i class="fas fa-bolt"></i></div>
+          <h4>PROSES CEPAT & TERPERCAYA</h4>
         </div>
-        <div class="hero-card tilt-card">
-          <div class="hero-card-icon"><i class="fas fa-users"></i></div>
-          <h3>TIM AHLI &amp; BERPENGALAMAN</h3>
-          <p>Didukung tenaga profesional bersertifikat</p>
+        <div class="hero-feature reveal">
+          <div class="icon"><i class="fas fa-users"></i></div>
+          <h4>TIM AHLI & BERPENGALAMAN</h4>
         </div>
-        <div class="hero-card tilt-card">
-          <div class="hero-card-icon"><i class="fas fa-shield-alt"></i></div>
-          <h3>LAYANAN LENGKAP UNTUK BISNIS ANDA</h3>
-          <p>Solusi 360&deg; sertifikasi &amp; perizinan</p>
-        </div>
-      </div>
-
-      <a href="https://wa.me/6283841213336?text=Halo%20ARIL%20HIDAYAT%2C%20saya%20tertarik%20dengan%20jasa%20sertifikasi%20dan%20perizinan%20yang%20ditawarkan.%20Saya%20ingin%20konsultasi." target="_blank" class="hero-cta">
-        <i class="fab fa-whatsapp"></i>
-        <span>KONSULTASI GRATIS VIA WHATSAPP</span>
-      </a>
-    </div>
-  </section>
-
-  <section class="section" id="about" style="background: #FFFFFF;">
-    <div class="section-inner">
-      <div class="text-center">
-        <div class="section-label">Tentang Perusahaan</div>
-        <h2 class="section-title">Tentang Kami</h2>
-        <p class="section-desc mx-auto">Mengenal lebih dekat PT. YASH PIJAR ARTEKSI</p>
-      </div>
-
-      <div class="about-grid">
-        <div class="glass-card stagger-item">
-          <div class="about-icon-box"><i class="fas fa-building"></i></div>
-          <div class="about-text">
-            <p>Perusahaan kami bergerak di bidang jasa perizinan dan sertifikasi profesi dan badan usaha dengan kebutuhan anda, berikut adalah berbagai layanan yang bisa anda proses melalui perusahaan kami.</p>
-          </div>
-        </div>
-        <div class="about-visual stagger-item">
-          <div class="about-shape">
-            <div class="about-shape-ring"></div>
-            <div class="about-shape-ring"></div>
-            <div class="about-shape-ring"></div>
-            <div class="about-center-icon"><i class="fas fa-certificate"></i></div>
-          </div>
+        <div class="hero-feature reveal">
+          <div class="icon"><i class="fas fa-layer-group"></i></div>
+          <h4>LAYANAN LENGKAP UNTUK BISNIS ANDA</h4>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="services-profesi" style="background: #F8FAFC;">
-    <div class="section-inner">
-      <div class="text-center">
-        <div class="section-label">Individu</div>
-        <h2 class="section-title">Layanan Sertifikasi Profesi</h2>
-        <p class="section-desc mx-auto">Untuk tenaga profesional dan individu yang membutuhkan sertifikasi</p>
-      </div>
-
-      <div class="services-grid" id="profesiGrid">
-        <div class="service-badge stagger-item"><span>SKK Konstruksi</span></div>
-        <div class="service-badge stagger-item"><span>POP/POM/POU</span></div>
-        <div class="service-badge stagger-item"><span>WELDER</span></div>
-        <div class="service-badge stagger-item"><span>TOT</span></div>
-        <div class="service-badge stagger-item"><span>P3K</span></div>
-        <div class="service-badge stagger-item"><span>SERKOM</span></div>
-        <div class="service-badge stagger-item"><span>K3 LABOLATORIUM</span></div>
-        <div class="service-badge stagger-item"><span>SCAFFOLDING</span></div>
-        <div class="service-badge stagger-item"><span>MANAJEMEN SDM</span></div>
-        <div class="service-badge stagger-item"><span>FIRE OFFICER</span></div>
-        <div class="service-badge stagger-item"><span>K3 UMUM</span></div>
-        <div class="service-badge stagger-item"><span>K3 KONSTRUKSI</span></div>
-        <div class="service-badge stagger-item"><span>RIGGER</span></div>
-        <div class="service-badge stagger-item"><span>RUANG TERBATAS</span></div>
-        <div class="service-badge stagger-item"><span>HUB. INDUSTRIAL</span></div>
-        <div class="service-badge stagger-item"><span>K3 LISTRIK</span></div>
-        <div class="service-badge stagger-item"><span>MOBILE CRANE</span></div>
-        <div class="service-badge stagger-item"><span>SIO</span></div>
-        <div class="service-badge stagger-item"><span>ADMIN PERKANTORAN</span></div>
-        <div class="service-badge stagger-item"><span>K3 PERTAMBANGAN</span></div>
-        <div class="service-badge stagger-item"><span>AUDITOR SMK3</span></div>
-        <div class="service-badge stagger-item"><span>FORKLIFT</span></div>
-        <div class="service-badge stagger-item"><span>DAMKAR D</span></div>
-        <div class="service-badge stagger-item"><span>FIRST AID</span></div>
+  <!-- ABOUT PREVIEW -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">Tentang Kami</span>
+        <h2 class="section-title">Perusahaan Sertifikasi Profesional</h2>
+        <p class="section-subtitle">
+          Perusahaan kami bergerak di bidang jasa perizinan dan sertifikasi profesi dan badan usaha dengan kebutuhan anda, berikut adalah berbagai layanan yang bisa anda proses melalui perusahaan kami
+        </p>
+        <a href="profil.html" class="btn btn-primary" style="margin-top:10px;">
+          Selengkapnya <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="services-bu" style="background: #FFFFFF;">
-    <div class="section-inner">
-      <div class="text-center">
-        <div class="section-label">Perusahaan</div>
-        <h2 class="section-title">Layanan Sertifikasi Badan Usaha</h2>
-        <p class="section-desc mx-auto">Untuk perusahaan dan lembaga yang membutuhkan legalitas dan sertifikasi</p>
+  <!-- LAYANAN PREVIEW -->
+  <section class="section-padding" style="background:#F1F5F9;">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">Layanan</span>
+        <h2 class="section-title">Apa Yang Kami Tawarkan</h2>
+        <p class="section-subtitle">
+          Berbagai layanan sertifikasi profesional untuk memenuhi kebutuhan bisnis dan karier Anda
+        </p>
       </div>
-
-      <div class="services-grid" id="badanUsahaGrid">
-        <div class="service-badge stagger-item"><span>SBU KONSTRUKSI</span></div>
-        <div class="service-badge stagger-item"><span>ISO AKREDITASI IAF</span></div>
-        <div class="service-badge stagger-item"><span>BPOM</span></div>
-        <div class="service-badge stagger-item"><span>SNI</span></div>
-        <div class="service-badge stagger-item"><span>SBU SPESIALIS</span></div>
-        <div class="service-badge stagger-item"><span>ISO AKREDITASI KAN</span></div>
-        <div class="service-badge stagger-item"><span>AKUNTAN PUBLIK</span></div>
-        <div class="service-badge stagger-item"><span>TKDN</span></div>
-        <div class="service-badge stagger-item"><span>SBU KONSULTAN</span></div>
-        <div class="service-badge stagger-item"><span>ISO NON AKREDITASI</span></div>
-        <div class="service-badge stagger-item"><span>SKUP MIGAS</span></div>
-        <div class="service-badge stagger-item"><span>SIMPK</span></div>
-        <div class="service-badge stagger-item"><span>SBU JPTL</span></div>
-        <div class="service-badge stagger-item"><span>SERTIFIKAT STANDAR</span></div>
-        <div class="service-badge stagger-item"><span>CSMS</span></div>
-        <div class="service-badge stagger-item"><span>LKPM</span></div>
-        <div class="service-badge stagger-item"><span>PENDIRIAN PT/CV</span></div>
-        <div class="service-badge stagger-item"><span>SMK3</span></div>
-        <div class="service-badge stagger-item"><span>PKP</span></div>
-        <div class="service-badge stagger-item"><span>PKKPR</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="location" style="background: #F8FAFC;">
-    <div class="section-inner">
-      <div class="text-center">
-        <div class="section-label">Kantor Kami</div>
-        <h2 class="section-title">Lokasi Kantor</h2>
-        <p class="section-desc mx-auto">Kunjungi kantor kami untuk konsultasi langsung</p>
-      </div>
-
-      <div class="location-grid">
-        <div class="glass-card stagger-item">
-          <div class="loc-item">
-            <div class="loc-icon shake"><i class="fas fa-map-marker-alt"></i></div>
-            <div class="loc-text">
-              <h4>Alamat</h4>
-              <p>Ruko Bumi Permata Indah, Jl. Raden Saleh No 48, Karang Mulya, Karang Tengah, Tangerang City, Banten 15157</p>
-            </div>
-          </div>
-          <div class="loc-item">
-            <div class="loc-icon"><i class="fas fa-phone-alt"></i></div>
-            <div class="loc-text">
-              <h4>Telepon / WhatsApp</h4>
-              <p>0838-4121-3336 (ARIL HIDAYAT)</p>
-            </div>
-          </div>
-          <div class="loc-item">
-            <div class="loc-icon"><i class="fas fa-clock"></i></div>
-            <div class="loc-text">
-              <h4>Jam Operasional</h4>
-              <p>Senin - Sabtu, 08:00 - 17:00 WIB</p>
-            </div>
-          </div>
-          <div class="loc-item">
-            <div class="loc-icon"><i class="fas fa-envelope"></i></div>
-            <div class="loc-text">
-              <h4>Email</h4>
-              <p>info@yashpijararteksi.com</p>
-            </div>
-          </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-building"></i></div>
+          <h4>Sertifikasi Konstruksi</h4>
+          <p>Meningkatkan kepercayaan klien terhadap proyek konstruksi Anda.</p>
         </div>
-        <div class="loc-map stagger-item">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4!2d106.7!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTEnNTUuOSJTIDEwNsKwNDInNDEuNSJF!5e0!3m2!1sen!2sid!4v1" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-hard-hat"></i></div>
+          <h4>Sertifikasi KEMNAKER</h4>
+          <p>Komitmen terhadap Keselamatan dan Kesehatan Kerja (K3).</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-briefcase"></i></div>
+          <h4>Sertifikasi Badan Usaha</h4>
+          <p>Mengukuhkan kredibilitas perusahaan di mata mitra dan klien.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon"><i class="fas fa-certificate"></i></div>
+          <h4>Sertifikasi BNSP</h4>
+          <p>Pengakuan resmi kompetensi profesional tenaga kerja Indonesia.</p>
         </div>
       </div>
+      <div class="text-center reveal" style="margin-top:40px;">
+        <a href="layanan.html" class="btn btn-primary">
+          Lihat Semua Layanan <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="cta-parallax" id="cta">
-    <div class="section-inner cta-inner">
-      <h2 class="cta-title stagger-item">Siap Mendapatkan Sertifikasi?</h2>
-      <p class="cta-sub stagger-item">Hubungi kami sekarang untuk konsultasi gratis</p>
-      <a href="https://wa.me/6283841213336?text=Halo%20ARIL%20HIDAYAT%2C%20saya%20tertarik%20dengan%20jasa%20sertifikasi%20dan%20perizinan%20yang%20ditawarkan.%20Saya%20ingin%20konsultasi." target="_blank" class="ripple-btn stagger-item" id="ctaRipple">
-        <i class="fab fa-whatsapp"></i>
-        HUBUNGI VIA WHATSAPP
-      </a>
+  <!-- MITRA PREVIEW -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">Client</span>
+        <h2 class="section-title">Client Kami</h2>
+        <p class="section-subtitle">
+          Dipercaya oleh berbagai perusahaan dan instansi terkemuka di Indonesia
+        </p>
+      </div>
+      <div class="mitra-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="mitra-card reveal">
+          <div class="initial">AK</div>
+          <h4>PT. AK</h4>
+          <p>Perusahaan Konstruksi</p>
+        </div>
+        <div class="mitra-card reveal">
+          <div class="initial">AIMH</div>
+          <h4>PT. AIMH</h4>
+          <p>Konsultan Engineering</p>
+        </div>
+        <div class="mitra-card reveal">
+          <div class="initial">S</div>
+          <h4>PT. SANTOSA</h4>
+          <p>Kontraktor Nasional</p>
+        </div>
+        <div class="mitra-card reveal">
+          <div class="initial">JB</div>
+          <h4>PT. JB</h4>
+          <p>Developer Properti</p>
+        </div>
+        <div class="mitra-card reveal">
+          <div class="initial">A</div>
+          <h4>Archilux</h4>
+          <p>Arsitek & Desain</p>
+        </div>
+      </div>
+      <div class="text-center reveal" style="margin-top:40px;">
+        <a href="mitra.html" class="btn btn-primary">
+          Lihat Semua Mitra <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <h3>PT. YASH PIJAR <span>ARTEKSI</span></h3>
-        <p>Solusi Profesional untuk Sertifikasi dan Perizinan Usaha Anda. Kami hadir untuk membantu kebutuhan bisnis dan profesi anda.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Layanan</h4>
-        <a href="#services-profesi">Sertifikasi Profesi</a>
-        <a href="#services-bu">Sertifikasi Badan Usaha</a>
-      </div>
-      <div class="footer-col">
-        <h4>Kontak</h4>
-        <a href="https://wa.me/6283841213336?text=Halo%20ARIL%20HIDAYAT%2C%20saya%20tertarik%20dengan%20jasa%20sertifikasi%20dan%20perizinan%20yang%20ditawarkan.%20Saya%20ingin%20konsultasi." target="_blank"><i class="fab fa-whatsapp"></i> 0838-4121-3336</a>
-        <a href="#"><i class="fas fa-map-marker-alt"></i> Tangerang, Banten</a>
+  <!-- CTA -->
+  <section class="cta-section section-padding">
+    <div class="container">
+      <div class="reveal">
+        <h2>Siap Mendapatkan <span>Sertifikasi?</span></h2>
+        <p>Konsultasikan kebutuhan sertifikasi Anda dengan tim ahli kami secara gratis.</p>
+        <a href="https://wa.me/6283841213336?text=Halo%20ARIL%20HIDAYAT%2C%20saya%20tertarik%20dengan%20jasa%20sertifikasi%20dan%20perizinan%20yang%20ditawarkan.%20Saya%20ingin%20konsultasi." target="_blank" class="btn btn-wa btn-lg wa-link">
+          <i class="fab fa-whatsapp"></i> HUBUNGI VIA WHATSAPP
+        </a>
       </div>
     </div>
-    <div class="footer-bottom">
-      &copy; 2026 PT. YASH PIJAR ARTEKSI. All Rights Reserved.
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>PT. Yash Pijar Arteksi</h3>
+          <p>Perusahaan jasa sertifikasi profesi dan badan usaha terpercaya di Indonesia, khususnya Jabodetabek.</p>
+          <div class="footer-socials" style="margin-top:16px;">
+            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="layanan.html">Layanan</a></li>
+            <li><a href="mitra.html">Mitra</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Layanan</h4>
+          <ul>
+            <li><a href="layanan.html">Sertifikasi Konstruksi</a></li>
+            <li><a href="layanan.html">Sertifikasi KEMNAKER</a></li>
+            <li><a href="layanan.html">Sertifikasi Badan Usaha</a></li>
+            <li><a href="layanan.html">Sertifikasi BNSP</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kontak</h4>
+          <ul>
+            <li><a href="https://wa.me/6283841213336" target="_blank"><i class="fab fa-whatsapp"></i> 0838-4121-3336</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> info@yashpijararteksi.com</a></li>
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> Tangerang, Banten</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 PT. Yash Pijar Arteksi. All rights reserved.</span>
+        <span>Made with <i class="fas fa-heart" style="color:var(--accent);"></i> for Indonesia</span>
+      </div>
     </div>
   </footer>
 
-  <script>
-    (function() {
+  <!-- MODAL LAYANAN -->
+  <div class="modal-overlay">
+    <div class="modal">
+      <button class="modal-close" aria-label="Tutup">&times;</button>
+      <div class="modal-icon"><i class="fas fa-file-pen"></i></div>
+      <h3>Daftar Layanan</h3>
+      <p class="modal-service-name" id="modal-service-name">-</p>
+      <input type="hidden" id="service-name-input">
+      <form class="modal-form">
+        <div class="form-group">
+          <label for="field-nama">Nama / Asal Perusahaan</label>
+          <input type="text" id="field-nama" placeholder="Masukkan nama atau perusahaan Anda" required>
+        </div>
+        <div class="form-group">
+          <label for="field-telepon">Nomor Telepon</label>
+          <input type="tel" id="field-telepon" placeholder="0812xxxxxxx" required>
+        </div>
+        <div class="form-group">
+          <label for="field-email">Email <span style="color:#94A3B8;font-weight:400;">(opsional)</span></label>
+          <input type="email" id="field-email" placeholder="email@contoh.com">
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i class="fab fa-whatsapp"></i> Kirim ke WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
 
-      const staggerItems = document.querySelectorAll('.stagger-item');
-      const staggerObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, i) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('visible');
-            }, entry.target.dataset.delay || 0);
-          }
-        });
-      }, { threshold: 0.1 });
-
-      staggerItems.forEach((el, i) => {
-        el.dataset.delay = i * 60;
-        staggerObserver.observe(el);
-      });
-
-      const serviceBadges = document.querySelectorAll('.service-badge');
-      serviceBadges.forEach((el, i) => {
-        el.dataset.delay = i * 40;
-        staggerObserver.observe(el);
-      });
-
-      const navbar = document.getElementById('navbar');
-      const progressBar = document.getElementById('progressBar');
-      window.addEventListener('scroll', () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = (scrollTop / docHeight) * 100;
-        progressBar.style.width = progress + '%';
-        if (scrollTop > 60) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
-      });
-
-      const cursorGlow = document.getElementById('cursorGlow');
-      document.addEventListener('mousemove', (e) => {
-        cursorGlow.style.left = e.clientX + 'px';
-        cursorGlow.style.top = e.clientY + 'px';
-      });
-      document.addEventListener('mouseleave', () => {
-        cursorGlow.style.opacity = '0';
-      });
-      document.addEventListener('mouseenter', () => {
-        cursorGlow.style.opacity = '1';
-      });
-
-      const heroTitle = document.getElementById('heroTitle');
-      if (heroTitle) {
-        const txt = 'JASA SERTIFIKASI TERPERCAYA';
-        heroTitle.innerHTML = '';
-        let i = 0;
-        function typeChar() {
-          if (i < txt.length) {
-            const char = txt[i];
-            if (char === ' ') {
-              heroTitle.innerHTML += ' ';
-            } else {
-              const span = document.createElement('span');
-              if (i < 'JASA SERTIFIKASI'.length) {
-                span.style.background = 'linear-gradient(135deg, #F59E0B, #FBBF24)';
-                span.style.webkitBackgroundClip = 'text';
-                span.style.webkitTextFillColor = 'transparent';
-                span.style.backgroundClip = 'text';
-              } else {
-                span.style.color = '#fff';
-              }
-              span.textContent = char;
-              heroTitle.appendChild(span);
-            }
-            i++;
-            setTimeout(typeChar, 60);
-          } else {
-            const cursor = document.createElement('span');
-            cursor.className = 'cursor-blink';
-            heroTitle.appendChild(cursor);
-          }
-        }
-        typeChar();
-      }
-
-      function animateCounter(el, target) {
-        let current = 0;
-        const step = Math.ceil(target / 40);
-        const interval = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            current = target;
-            clearInterval(interval);
-          }
-          el.textContent = current;
-        }, 30);
-      }
-
-      const countProfesi = document.getElementById('countProfesi');
-      const countBadanUsaha = document.getElementById('countBadanUsaha');
-      let counted = false;
-
-      const heroObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !counted) {
-            counted = true;
-            animateCounter(countProfesi, 24);
-            animateCounter(countBadanUsaha, 20);
-          }
-        });
-      }, { threshold: 0.5 });
-
-      heroObserver.observe(document.querySelector('.hero-stats'));
-
-      const tiltCards = document.querySelectorAll('.tilt-card');
-      tiltCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-          const rotateX = ((y - centerY) / centerY) * -8;
-          const rotateY = ((x - centerX) / centerX) * 8;
-          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02,1.02,1.02)`;
-        });
-        card.addEventListener('mouseleave', () => {
-          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)';
-        });
-      });
-
-      const ctaBtn = document.getElementById('ctaRipple');
-      if (ctaBtn) {
-        ctaBtn.addEventListener('click', function(e) {
-          const ripple = document.createElement('span');
-          ripple.classList.add('ripple');
-          const rect = this.getBoundingClientRect();
-          const size = Math.max(rect.width, rect.height);
-          ripple.style.width = ripple.style.height = size + 'px';
-          ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
-          ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
-          this.appendChild(ripple);
-          setTimeout(() => ripple.remove(), 600);
-        });
-      }
-
-    })();
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
