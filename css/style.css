@@ -980,9 +980,14 @@ img {
 
 /* ===== INSTITUSI GRID (MITRA PAGE) ===== */
 #institusiGrid {
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 #institusiGrid .mitra-card {
+  flex: 0 0 calc(25% - 20px);
+  max-width: calc(25% - 20px);
   padding: 28px 16px;
 }
 #institusiGrid .logo-wrap {
@@ -1015,13 +1020,15 @@ img {
   font-size: 0.72rem;
 }
 @media (max-width: 1024px) {
-  #institusiGrid {
-    grid-template-columns: repeat(3, 1fr);
+  #institusiGrid .mitra-card {
+    flex: 0 0 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
   }
 }
 @media (max-width: 600px) {
-  #institusiGrid {
-    grid-template-columns: repeat(2, 1fr);
+  #institusiGrid .mitra-card {
+    flex: 0 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
   #institusiGrid .logo-wrap {
     width: 60px;
@@ -1032,8 +1039,9 @@ img {
   }
 }
 @media (max-width: 380px) {
-  #institusiGrid {
-    grid-template-columns: 1fr;
+  #institusiGrid .mitra-card {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
   #institusiGrid .logo-wrap {
     width: 56px;
