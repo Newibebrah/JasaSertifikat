@@ -809,18 +809,19 @@ img {
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 8px 4px;
+    padding: 8px 12px;
     flex-wrap: nowrap;
     -ms-overflow-style: none;
     scrollbar-width: none;
     touch-action: pan-x;
+    justify-content: center;
   }
   .carousel-scroll .scroll-x::-webkit-scrollbar {
     display: none;
   }
   .carousel-scroll .scroll-x > * {
-    flex: 0 0 75%;
-    scroll-snap-align: start;
+    flex: 0 0 80%;
+    scroll-snap-align: center;
   }
   .services-grid.scroll-x {
     display: flex;
@@ -828,30 +829,33 @@ img {
     overflow-x: auto;
     flex-wrap: nowrap;
     touch-action: pan-x;
+    justify-content: center;
   }
   .services-grid.scroll-x > * {
-    flex: 0 0 75%;
+    flex: 0 0 80%;
+    scroll-snap-align: center;
   }
   #institusiGrid.scroll-x {
     display: flex;
     gap: 12px;
     overflow-x: auto;
     flex-wrap: nowrap;
-    justify-content: flex-start;
+    justify-content: center;
     touch-action: pan-x;
   }
   #institusiGrid.scroll-x > * {
-    flex: 0 0 65%;
+    flex: 0 0 75%;
+    scroll-snap-align: center;
   }
 }
 
 @media (max-width: 480px) {
   .carousel-scroll .scroll-x > *,
   .services-grid.scroll-x > * {
-    flex: 0 0 82%;
+    flex: 0 0 88%;
   }
   #institusiGrid.scroll-x > * {
-    flex: 0 0 75%;
+    flex: 0 0 80%;
   }
   .carousel-btn {
     width: 30px;
