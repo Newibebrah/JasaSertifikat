@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const WA_LINK = 'https://wa.me/6283841213336?text=Halo%20ARIL%20HIDAYAT%2C%20saya%20tertarik%20dengan%20jasa%20sertifikasi%20dan%20perizinan%20yang%20ditawarkan.%20Saya%20ingin%20konsultasi.';
-
-  // Set all WA links
-  document.querySelectorAll('.wa-link').forEach(el => {
-    el.href = WA_LINK;
-  });
+  // ===== INJECT WA MODAL =====
+  injectWAModal();
+  // ===== INIT WA CTA BUTTONS =====
+  initWACTAButtons();
 
   // ===== STICKY NAVBAR =====
   const navbar = document.querySelector('.navbar');
@@ -206,3 +204,128 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// ===== WA MODAL FUNCTIONS =====
+function injectWAModal() {
+  if (document.getElementById('waModal')) return;
+  const html = `
+    <div id="waModal" class="wa-modal-overlay">
+      <div class="wa-modal-content">
+        <button class="wa-modal-close" id="waModalClose">&times;</button>
+        <div class="wa-modal-icon"><i class="fab fa-whatsapp"></i></div>
+        <h3>Hubungi Kami</h3>
+        <p class="wa-modal-desc">Silakan isi data di bawah agar kami bisa merespon dengan cepat.</p>
+        <form id="waForm">
+          <div class="form-group">
+            <label>Nama Lengkap <span class="required">*</span></label>
+            <input type="text" id="fieldNama" placeholder="Masukkan nama lengkap Anda" required>
+          </div>
+          <div class="form-group">
+            <label>Nomor Telepon / WhatsApp <span class="required">*</span></label>
+            <input type="tel" id="fieldTelepon" placeholder="081234567890" required>
+          </div>
+          <div class="form-group">
+            <label>Email <span class="optional">(opsional)</span></label>
+            <input type="email" id="fieldEmail" placeholder="email@anda.com">
+          </div>
+          <div class="form-group">
+            <label>Tujuan Menghubungi <span class="required">*</span></label>
+            <div class="tujuan-options">
+              <label class="tujuan-chip">
+                <input type="radio" name="tujuan" value="Ingin Konsultasi" required>
+                <span>&#128172; Ingin Konsultasi</span>
+              </label>
+              <label class="tujuan-chip">
+                <input type="radio" name="tujuan" value="Ingin Membeli / Menggunakan Jasa">
+                <span>&#128722; Ingin Membeli / Menggunakan Jasa</span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Layanan yang Diminati <span class="required">*</span></label>
+            <input type="text" id="fieldLayanan" placeholder="Contoh: Sertifikasi K3 Konstruksi, SBU, dll." required>
+            <small class="field-hint">Tulis layanan spesifik yang Anda butuhkan</small>
+          </div>
+          <div class="form-group">
+            <label>Pesan Tambahan <span class="optional">(opsional)</span></label>
+            <textarea id="fieldPesan" rows="3" placeholder="Tanyakan hal lain di sini..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;margin-top:4px;">
+            <i class="fab fa-whatsapp"></i> Kirim ke WhatsApp
+          </button>
+          <button type="button" class="btn" id="waBatal" style="width:100%;justify-content:center;padding:10px;background:#F1F5F9;color:#64748B;margin-top:8px;">
+            Batal
+          </button>
+        </form>
+      </div>
+    </div>
+  `;
+  document.body.insertAdjacentHTML('beforeend', html);
+}
+
+function initWACTAButtons() {
+  const modal = document.getElementById('waModal');
+  if (!modal) return;
+  const closeBtn = document.getElementById('waModalClose');
+  const batalBtn = document.getElementById('waBatal');
+  const form = document.getElementById('waForm');
+  const overlay = modal;
+
+  function openModal() {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('fieldNama')?.focus(), 100);
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    form?.reset();
+  }
+
+  closeBtn?.addEventListener('click', closeModal);
+  batalBtn?.addEventListener('click', closeModal);
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nama = document.getElementById('fieldNama')?.value.trim();
+    const telepon = document.getElementById('fieldTelepon')?.value.trim();
+    const email = document.getElementById('fieldEmail')?.value.trim();
+    const tujuan = document.querySelector('input[name="tujuan"]:checked');
+    const layanan = document.getElementById('fieldLayanan')?.value.trim();
+    const pesan = document.getElementById('fieldPesan')?.value.trim();
+
+    if (!nama) return alert('Harap isi Nama Lengkap Anda.');
+    if (!telepon || telepon.length < 10) return alert('Harap isi Nomor Telepon minimal 10 digit.');
+    if (!tujuan) return alert('Pilih Tujuan Anda menghubungi kami.');
+    if (!layanan) return alert('Harap isi Layanan yang Anda minati.');
+
+    const WA_NUMBER = '6283841213336';
+    const now = new Date();
+    const tgl = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+    const jam = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+    let msg = `Halo ARIL HIDAYAT, saya ${nama}.`;
+    msg += `\n\n📌 Tujuan: ${tujuan.value}`;
+    msg += `\n📋 Layanan: ${layanan}`;
+    msg += `\n\n📞 No. Telepon: ${telepon}`;
+    if (email) msg += `\n📧 Email: ${email}`;
+    if (pesan) msg += `\n💬 Pesan: ${pesan}`;
+    msg += `\n\n━━━━━━━━━━━━━━━━━`;
+    msg += `\n🕐 Dikirim pada: ${tgl}, ${jam}`;
+    msg += `\n━━━━━━━━━━━━━━━━━`;
+    msg += `\n\nSaya ingin informasi lebih lanjut. Terima kasih.`;
+
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    closeModal();
+  });
+
+  document.querySelectorAll('.wa-link').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+}
