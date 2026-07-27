@@ -2643,13 +2643,25 @@ img {
     gap: 16px;
     border-left-width: 4px;
   }
+  .mitra-closing-box p {
+    font-size: 0.92rem;
+  }
   .mitra-closing-icon {
     width: 44px;
     height: 44px;
     font-size: 1.1rem;
   }
+  .mitra-modal-header h3 {
+    font-size: 1.15rem;
+  }
+  .mitra-modal-body p {
+    font-size: 0.85rem;
+  }
   .gallery-note {
     padding: 14px 18px;
+  }
+  .gallery-note span {
+    font-size: 0.82rem;
   }
 }
 
@@ -3080,6 +3092,12 @@ img {
   .mitra-modal-header {
     padding: 16px 18px 14px;
   }
+  .mitra-modal-header h3 {
+    font-size: 1rem;
+  }
+  .mitra-modal-header .mitra-modal-sub {
+    font-size: 0.75rem;
+  }
   .mitra-modal-body {
     padding: 20px 18px 24px;
   }
@@ -3092,8 +3110,14 @@ img {
   .mitra-modal-logo img {
     padding: 6px;
   }
+  .mitra-modal-body p {
+    font-size: 0.8rem;
+  }
   .gallery-note {
     padding: 10px 14px;
+  }
+  .gallery-note span {
+    font-size: 0.78rem;
   }
   .lightbox-desc {
     padding: 14px 14px 18px;
