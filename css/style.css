@@ -2635,6 +2635,22 @@ img {
     padding: 10px 14px;
     font-size: 0.85rem;
   }
+  .mitra-closing {
+    padding: 0 0 40px;
+  }
+  .mitra-closing-box {
+    padding: 24px 24px;
+    gap: 16px;
+    border-left-width: 4px;
+  }
+  .mitra-closing-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+  .gallery-note {
+    padding: 14px 18px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2762,6 +2778,58 @@ img {
   }
   .service-cat-title {
     font-size: 0.68rem;
+  }
+  .mitra-closing {
+    padding: 0 0 24px;
+  }
+  .mitra-closing-box {
+    padding: 18px 18px;
+    gap: 12px;
+    border-left-width: 3px;
+    border-radius: var(--radius-md);
+  }
+  .mitra-closing-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+    box-shadow: 0 3px 10px rgba(245, 158, 11, 0.2);
+  }
+  .mitra-closing-box p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  .mitra-modal-header {
+    padding: 20px 24px 16px;
+  }
+  .mitra-modal-header h3 {
+    font-size: 1.1rem;
+  }
+  .mitra-modal-body {
+    padding: 24px 24px 28px;
+  }
+  .mitra-modal-logo {
+    width: 80px;
+    height: 80px;
+    margin-top: -52px;
+  }
+  .mitra-modal-logo img {
+    padding: 8px;
+  }
+  .mitra-modal-body p {
+    font-size: 0.82rem;
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+  .gallery-note {
+    padding: 12px 16px;
+    border-left-width: 3px;
+  }
+  .gallery-note span {
+    font-size: 0.8rem;
+  }
+  .lightbox-desc {
+    padding: 16px 18px 20px;
+    font-size: 0.8rem;
   }
 }
 
@@ -2991,5 +3059,47 @@ img {
   }
   .footer-brand p {
     font-size: 0.78rem;
+  }
+  .mitra-closing-box {
+    padding: 14px 14px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .mitra-closing-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+  }
+  .mitra-closing-box p {
+    font-size: 0.82rem;
+    padding-top: 0;
+  }
+  .mitra-modal-header {
+    padding: 16px 18px 14px;
+  }
+  .mitra-modal-body {
+    padding: 20px 18px 24px;
+  }
+  .mitra-modal-logo {
+    width: 68px;
+    height: 68px;
+    margin-top: -44px;
+    border-width: 3px;
+  }
+  .mitra-modal-logo img {
+    padding: 6px;
+  }
+  .gallery-note {
+    padding: 10px 14px;
+  }
+  .lightbox-desc {
+    padding: 14px 14px 18px;
+    font-size: 0.78rem;
+  }
+  .lightbox-content {
+    width: 94%;
   }
 }
