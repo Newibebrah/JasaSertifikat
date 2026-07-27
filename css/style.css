@@ -1674,15 +1674,19 @@ img {
     padding: 20px;
   }
   .footer-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 0;
+    text-align: center;
   }
   .footer-brand {
-    grid-column: 1 / -1;
-    text-align: center;
+    grid-column: auto;
   }
   .footer-brand p {
     max-width: 100%;
+    margin: 0 auto;
+  }
+  .footer-col {
+    display: none;
   }
   .footer {
     padding: 40px 0 20px;
@@ -1862,17 +1866,6 @@ img {
   }
   .cta-section h2 {
     font-size: 1.15rem;
-  }
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  .footer-brand {
-    grid-column: 1 / -1;
-    text-align: center;
-  }
-  .footer-brand p {
-    max-width: 100%;
   }
   .footer {
     padding: 30px 0 16px;
@@ -2120,20 +2113,10 @@ img {
   .footer {
     padding: 24px 0 12px;
   }
-  .footer-grid {
-    gap: 14px;
-  }
   .footer-brand h3 {
     font-size: 1rem;
   }
   .footer-brand p {
-    font-size: 0.78rem;
-  }
-  .footer-col h4 {
-    font-size: 0.78rem;
-    margin-bottom: 12px;
-  }
-  .footer-col ul li a {
     font-size: 0.78rem;
   }
 }
