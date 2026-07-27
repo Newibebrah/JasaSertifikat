@@ -1685,7 +1685,8 @@ img {
     max-width: 100%;
     margin: 0 auto;
   }
-  .footer-col {
+  .footer-col:nth-child(2),
+  .footer-col:nth-child(3) {
     display: none;
   }
   .footer {
