@@ -433,6 +433,30 @@ img {
   letter-spacing: 0.5px;
 }
 
+@media (min-width: 769px) {
+  .hero-features {
+    gap: 0;
+  }
+  .hero-feature {
+    border-right: 1px solid rgba(255,255,255,0.12);
+    border-radius: 0;
+  }
+  .hero-feature:first-child {
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+  }
+  .hero-feature:last-child {
+    border-right: none;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .footer-grid > * {
+    border-right: 1px solid rgba(255,255,255,0.08);
+    padding-right: 40px;
+  }
+  .footer-grid > *:last-child {
+    border-right: none;
+  }
+}
+
 /* ===== PAGE HEADER ===== */
 .page-header {
   padding: 160px 0 80px;
