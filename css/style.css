@@ -1060,26 +1060,45 @@ img {
   }
 }
 @media (max-width: 600px) {
+  #institusiGrid {
+    gap: 12px;
+  }
   #institusiGrid .mitra-card {
-    flex: 0 0 calc(50% - 20px);
-    max-width: calc(50% - 20px);
+    flex: 0 0 calc(25% - 12px);
+    max-width: calc(25% - 12px);
+    padding: 16px 8px;
   }
   #institusiGrid .logo-wrap {
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 10px;
   }
-  #institusiGrid .mitra-card {
-    padding: 20px 12px;
+  #institusiGrid .mitra-card h4 {
+    font-size: 0.75rem;
+  }
+  #institusiGrid .mitra-card p {
+    font-size: 0.65rem;
   }
 }
 @media (max-width: 380px) {
+  #institusiGrid {
+    gap: 8px;
+  }
   #institusiGrid .mitra-card {
-    flex: 0 0 100%;
-    max-width: 100%;
+    flex: 0 0 calc(25% - 8px);
+    max-width: calc(25% - 8px);
+    padding: 12px 6px;
   }
   #institusiGrid .logo-wrap {
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 6px;
+  }
+  #institusiGrid .mitra-card h4 {
+    font-size: 0.7rem;
+  }
+  #institusiGrid .mitra-card p {
+    font-size: 0.6rem;
   }
 }
 
