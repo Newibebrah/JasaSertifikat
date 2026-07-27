@@ -1129,12 +1129,11 @@ img {
 /* ===== MITRA ===== */
 .mitra-card {
   background: var(--text-light);
-  border: 1px solid #E2E8F0;
   border-radius: var(--radius-md);
   padding: 32px 16px;
   text-align: center;
   transition: var(--transition);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 6px 24px rgba(21, 45, 107, 0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1142,8 +1141,7 @@ img {
 
 .mitra-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--accent);
+  box-shadow: 0 12px 36px rgba(21, 45, 107, 0.1);
 }
 
 .mitra-card h4 {
@@ -1268,16 +1266,18 @@ img {
 #institusiGrid .mitra-card {
   flex: 0 0 calc(25% - 20px);
   max-width: calc(25% - 20px);
-  padding: 28px 16px;
+  padding: 36px 20px;
+  min-height: 220px;
+  justify-content: center;
 }
 #institusiGrid .logo-wrap {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 14px;
+  margin: 0 auto 16px;
   overflow: hidden;
   background: #fff;
   border: 2px solid #E2E8F0;
@@ -1291,18 +1291,19 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 6px;
+  padding: 8px;
 }
 #institusiGrid .mitra-card h4 {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 #institusiGrid .mitra-card p {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
 }
 @media (max-width: 1024px) {
   #institusiGrid .mitra-card {
     flex: 0 0 calc(33.33% - 20px);
     max-width: calc(33.33% - 20px);
+    min-height: 200px;
   }
 }
 @media (max-width: 600px) {
@@ -1312,15 +1313,19 @@ img {
   #institusiGrid .mitra-card {
     flex: 0 0 calc(33.33% - 12px);
     max-width: calc(33.33% - 12px);
-    padding: 16px 8px;
+    padding: 20px 12px;
+    min-height: 170px;
   }
   #institusiGrid .mitra-card:last-child {
     margin: 0 auto;
   }
   #institusiGrid .logo-wrap {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 10px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 12px;
+  }
+  #institusiGrid .logo-wrap img {
+    padding: 6px;
   }
   #institusiGrid .mitra-card h4 {
     font-size: 0.8rem;
@@ -1331,20 +1336,24 @@ img {
 }
 @media (max-width: 380px) {
   #institusiGrid {
-    gap: 8px;
+    gap: 10px;
   }
   #institusiGrid .mitra-card {
-    flex: 0 0 calc(33.33% - 8px);
-    max-width: calc(33.33% - 8px);
-    padding: 12px 6px;
+    flex: 0 0 calc(33.33% - 10px);
+    max-width: calc(33.33% - 10px);
+    padding: 16px 8px;
+    min-height: 150px;
   }
   #institusiGrid .mitra-card:last-child {
     margin: 0 auto;
   }
   #institusiGrid .logo-wrap {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 6px;
+    width: 52px;
+    height: 52px;
+    margin-bottom: 8px;
+  }
+  #institusiGrid .logo-wrap img {
+    padding: 4px;
   }
   #institusiGrid .mitra-card h4 {
     font-size: 0.75rem;
