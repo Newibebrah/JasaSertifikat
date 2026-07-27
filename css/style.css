@@ -825,7 +825,7 @@ img {
     display: none;
   }
   .carousel-scroll .scroll-x > * {
-    flex: 0 0 75%;
+    flex: 0 0 85%;
     scroll-snap-align: center;
   }
   .services-grid.scroll-x {
@@ -849,7 +849,7 @@ img {
     padding: 0 48px;
   }
   #institusiGrid.scroll-x > * {
-    flex: 0 0 75%;
+    flex: 0 0 85%;
     scroll-snap-align: center;
   }
 }
@@ -866,10 +866,8 @@ img {
     right: 2px;
   }
   .carousel-scroll .scroll-x > *,
+  .services-grid.scroll-x > *,
   #institusiGrid.scroll-x > * {
-    flex: 0 0 80%;
-  }
-  .services-grid.scroll-x > * {
     flex: 0 0 88%;
   }
   .carousel-scroll .scroll-x {
@@ -1691,6 +1689,9 @@ img {
   .footer-col:nth-child(2),
   .footer-col:nth-child(3) {
     display: none;
+  }
+  .footer-col {
+    text-align: left;
   }
   .footer-col h4 {
     margin-bottom: 14px;
