@@ -1291,6 +1291,9 @@ img {
     height: 36px;
     font-size: 0.9rem;
   }
+  .mitra-slider-dots {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {

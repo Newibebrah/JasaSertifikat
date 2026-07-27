@@ -418,7 +418,6 @@ function initMitraSlider() {
   const dotsContainer = document.getElementById('mitraSliderDots');
   const totalSlides = slides.length;
   let currentIndex = 0;
-  let autoplayTimer = null;
   let slidesPerView = window.innerWidth >= 769 ? 3 : 1;
 
   function updateSlidesPerView() {
@@ -448,20 +447,32 @@ function initMitraSlider() {
   function nextSlide() { goToSlide(currentIndex + 1); }
   function prevSlide() { goToSlide(currentIndex - 1); }
 
-  function startAutoplay() {
-    stopAutoplay();
-    autoplayTimer = setInterval(nextSlide, 3500);
-  }
+  prevBtn.addEventListener('click', () => { prevSlide(); });
+  nextBtn.addEventListener('click', () => { nextSlide(); });
 
-  function stopAutoplay() {
-    if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
-  }
+  // Touch swipe
+  let startX = 0;
+  let isDragging = false;
 
-  prevBtn.addEventListener('click', () => { prevSlide(); startAutoplay(); });
-  nextBtn.addEventListener('click', () => { nextSlide(); startAutoplay(); });
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  }, { passive: true });
 
-  track.addEventListener('mouseenter', stopAutoplay);
-  track.addEventListener('mouseleave', startAutoplay);
+  track.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    if (!isDragging) return;
+    isDragging = false;
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) nextSlide();
+      else prevSlide();
+    }
+  }, { passive: true });
 
   let resizeTimer;
   window.addEventListener('resize', () => {
@@ -476,7 +487,6 @@ function initMitraSlider() {
   });
 
   goToSlide(0);
-  startAutoplay();
 }
 
 function scrollCarousel(btn, dir) {
