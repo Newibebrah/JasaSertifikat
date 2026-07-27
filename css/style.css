@@ -831,7 +831,7 @@ img {
   }
   .services-grid.scroll-x {
     display: flex;
-    gap: 14px;
+    gap: 12px;
     overflow-x: auto;
     flex-wrap: nowrap;
     touch-action: pan-x;
@@ -839,7 +839,7 @@ img {
     padding: 0 48px;
   }
   .services-grid.scroll-x > * {
-    flex: 0 0 80%;
+    flex: 0 0 75%;
     scroll-snap-align: center;
   }
   #institusiGrid.scroll-x {
@@ -868,9 +868,11 @@ img {
     left: auto;
     right: 2px;
   }
-  .carousel-scroll .scroll-x > *,
-  .services-grid.scroll-x > * {
+  .carousel-scroll .scroll-x > * {
     flex: 0 0 88%;
+  }
+  .services-grid.scroll-x > * {
+    flex: 0 0 80%;
   }
   #institusiGrid.scroll-x > * {
     flex: 0 0 80%;
