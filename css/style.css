@@ -812,7 +812,7 @@ img {
   }
   .carousel-scroll .scroll-x {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     padding: 8px 48px;
@@ -820,13 +820,12 @@ img {
     -ms-overflow-style: none;
     scrollbar-width: none;
     touch-action: pan-x;
-    justify-content: center;
   }
   .carousel-scroll .scroll-x::-webkit-scrollbar {
     display: none;
   }
   .carousel-scroll .scroll-x > * {
-    flex: 0 0 80%;
+    flex: 0 0 75%;
     scroll-snap-align: center;
   }
   .services-grid.scroll-x {
@@ -835,7 +834,6 @@ img {
     overflow-x: auto;
     flex-wrap: nowrap;
     touch-action: pan-x;
-    justify-content: center;
     padding: 0 48px;
   }
   .services-grid.scroll-x > * {
@@ -847,7 +845,6 @@ img {
     gap: 12px;
     overflow-x: auto;
     flex-wrap: nowrap;
-    justify-content: center;
     touch-action: pan-x;
     padding: 0 48px;
   }
@@ -868,12 +865,8 @@ img {
     left: auto;
     right: 2px;
   }
-  .carousel-scroll .scroll-x > * {
-    flex: 0 0 88%;
-  }
-  .services-grid.scroll-x > * {
-    flex: 0 0 80%;
-  }
+  .carousel-scroll .scroll-x > *,
+  .services-grid.scroll-x > *,
   #institusiGrid.scroll-x > * {
     flex: 0 0 80%;
   }
