@@ -497,3 +497,58 @@ function scrollCarousel(btn, dir) {
   const childWidth = child.offsetWidth + parseInt(getComputedStyle(scrollEl).gap) || child.offsetWidth;
   scrollEl.scrollBy({ left: dir * childWidth, behavior: 'smooth' });
 }
+
+// ===== MITRA ACCORDION =====
+function toggleMitra(el) {
+  const isExpanded = el.classList.contains('expanded');
+  document.querySelectorAll('#institusiGrid .mitra-card').forEach(c => c.classList.remove('expanded'));
+  if (!isExpanded) el.classList.add('expanded');
+}
+
+// ===== GALERI LIGHTBOX =====
+(function initGalleryLightbox() {
+  const items = document.querySelectorAll('#galeriGrid .gallery-item');
+  if (!items.length) return;
+  const descs = [
+    'Tim GoSertify melayani konsultasi tatap muka kepada klien yang ingin mengurus sertifikasi badan usaha maupun profesi, memberikan penjelasan rinci mengenai prosedur, persyaratan, dan estimasi waktu penyelesaian secara profesional dan transparan.',
+    'Proses pendampingan pengisian dokumen persyaratan sertifikasi dilakukan secara teliti oleh tim administrasi kami untuk memastikan setiap kelengkapan data sesuai ketentuan yang berlaku sebelum diajukan ke lembaga terkait.',
+    'Suasana ruang operasional tim GoSertify dalam mengoordinasikan setiap tahap pengurusan sertifikat klien, mulai dari verifikasi awal hingga pengajuan akhir ke instansi penerbit sertifikasi.',
+    'Penyerahan Sertifikat Badan Usaha (SBU) kepada salah satu klien perusahaan konstruksi yang telah berhasil menyelesaikan seluruh proses sertifikasi sesuai standar kualifikasi yang ditetapkan.',
+    'Dokumentasi tim verifikasi saat melakukan pengecekan dokumen teknis dan administratif untuk memastikan keakuratan data sebelum melanjutkan proses sertifikasi ke tahap selanjutnya.',
+    'Suasana diskusi dan koordinasi antara manajemen GoSertify dengan perwakilan mitra institusi dalam rangka mempercepat dan menyelaraskan proses sertifikasi klien sesuai regulasi terkini.',
+    'Foto bersama tim dengan klien setelah berhasil menyelesaikan pengurusan sertifikasi profesi SKK Konstruksi, menandai komitmen kami terhadap kepuasan dan kesuksesan klien.',
+    'Penyerahan dokumen sertifikat ISO kepada klien perusahaan yang telah menyelesaikan seluruh tahapan audit dan memenuhi standar sistem manajemen mutu internasional.'
+  ];
+
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = '<div class="lightbox-content"><button class="lightbox-close">&times;</button><img class="lightbox-img" alt=""><div class="lightbox-desc"></div></div>';
+  document.body.appendChild(overlay);
+  const img = overlay.querySelector('.lightbox-img');
+  const desc = overlay.querySelector('.lightbox-desc');
+  const close = overlay.querySelector('.lightbox-close');
+
+  items.forEach((item, i) => {
+    item.style.cursor = 'pointer';
+    item.addEventListener('click', () => {
+      const src = item.querySelector('img').src;
+      img.src = src;
+      desc.textContent = descs[i] || '';
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  close.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
