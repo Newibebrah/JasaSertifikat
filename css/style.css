@@ -889,6 +889,9 @@ img {
   text-align: center;
   transition: var(--transition);
   box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .mitra-card:hover {
@@ -901,11 +904,14 @@ img {
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--primary);
+  margin-top: 12px;
+  margin-bottom: 4px;
 }
 
 .mitra-card p {
   font-size: 0.78rem;
   color: #94A3B8;
+  max-width: 100%;
 }
 
 /* ===== LOCATION ===== */
@@ -1553,7 +1559,10 @@ img {
     grid-template-columns: repeat(3, 1fr);
   }
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
   }
   .hero-title {
     font-size: 2.6rem;
@@ -1675,19 +1684,17 @@ img {
   }
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 0;
-    text-align: center;
-  }
-  .footer-brand {
-    grid-column: auto;
-  }
-  .footer-brand p {
-    max-width: 100%;
-    margin: 0 auto;
+    gap: 32px;
   }
   .footer-col:nth-child(2),
   .footer-col:nth-child(3) {
     display: none;
+  }
+  .footer-col h4 {
+    margin-bottom: 14px;
+  }
+  .footer-col ul li a {
+    font-size: 0.85rem;
   }
   .footer {
     padding: 40px 0 20px;
