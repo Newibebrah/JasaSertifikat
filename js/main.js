@@ -498,12 +498,47 @@ function scrollCarousel(btn, dir) {
   scrollEl.scrollBy({ left: dir * childWidth, behavior: 'smooth' });
 }
 
-// ===== MITRA ACCORDION =====
-function toggleMitra(el) {
-  const isExpanded = el.classList.contains('expanded');
-  document.querySelectorAll('#institusiGrid .mitra-card').forEach(c => c.classList.remove('expanded'));
-  if (!isExpanded) el.classList.add('expanded');
+// ===== MITRA MODAL =====
+const MITRA_DATA = [
+  { logo: 'assets/Mitra/PUPR.svg', name: 'PUPR', sub: 'Kementerian PUPR', desc: 'Kementerian PUPR melalui LPJK menerbitkan dan mengawasi Sertifikat Badan Usaha (SBU) bagi perusahaan konstruksi di Indonesia. Sebagai mitra, kami memastikan setiap pengurusan SBU klien memenuhi standar kualifikasi dan klasifikasi yang ditetapkan, sehingga perusahaan dapat bersaing secara profesional di industri jasa konstruksi nasional.' },
+  { logo: 'assets/Mitra/kemenker.png', name: 'Kemnaker', sub: 'Kementerian Ketenagakerjaan', desc: 'Kementerian Ketenagakerjaan membina dan mensertifikasi tenaga kerja Indonesia melalui berbagai program kompetensi. Kami bekerja sama dalam pengurusan SKK Konstruksi dan sertifikasi profesi lainnya yang menjadi syarat wajib bagi tenaga ahli untuk meningkatkan daya saing dan kredibilitas di dunia kerja.' },
+  { logo: 'assets/Mitra/ESDM.jpg', name: 'ESDM', sub: 'Kementerian ESDM', desc: 'Kementerian Energi dan Sumber Daya Mineral mengatur sertifikasi di sektor energi, migas, dan pertambangan. Afiliasi ini memungkinkan kami mengurus SKUP Migas, SIO, dan berbagai sertifikasi lain yang diakui di lingkungan ESDM secara resmi dan terpercaya.' },
+  { logo: 'assets/Mitra/iaf_logo.svg', name: 'IAF', sub: 'International Accreditation Forum', desc: 'International Accreditation Forum adalah organisasi akreditasi global yang memastikan sertifikat sistem manajemen diakui lintas negara. Pengakuan IAF terhadap sertifikat ISO yang kami urus memberi nilai tambah bagi klien yang membutuhkan standar internasional dalam ekspansi bisnis global.' },
+  { logo: 'assets/Mitra/KAN.png', name: 'KAN', sub: 'Komite Akreditasi Nasional', desc: 'Komite Akreditasi Nasional sebagai lembaga akreditasi resmi Indonesia memberikan akreditasi kepada lembaga sertifikasi dan laboratorium. Kemitraan dengan KAN memastikan setiap proses sertifikasi yang kami fasilitasi memenuhi standar nasional Indonesia dan diakui secara sah oleh pemerintah.' },
+  { logo: 'assets/Mitra/PS3M.png', name: 'P3SM', sub: 'Perkumpulan Profesi Penguji dan Sertifikasi Mutu Indonesia', desc: 'Perkumpulan Profesi Penguji dan Sertifikasi Mutu Indonesia merupakan mitra dalam pengembangan kompetensi tenaga pendidik dan kependidikan. Bersama P3SM, kami menyelenggarakan program pelatihan dan sertifikasi yang bertujuan meningkatkan mutu sumber daya manusia di sektor pendidikan dan pelatihan vokasi.' },
+  { logo: 'assets/Mitra/BNSP.png', name: 'BNSP', sub: 'Badan Nasional Sertifikasi Profesi', desc: 'Badan Nasional Sertifikasi Profesi adalah otoritas sertifikasi kompetensi profesi di Indonesia. Melalui lisensi BNSP, kami memfasilitasi sertifikasi profesi yang diakui secara nasional, memastikan tenaga kerja bersertifikat memiliki kompetensi terstandar dan diakui di seluruh Indonesia.' }
+];
+
+function openMitraModal(index) {
+  const modal = document.getElementById('mitraModal');
+  const logo = document.getElementById('mitraModalLogo');
+  const title = document.getElementById('mitraModalTitle');
+  const desc = document.getElementById('mitraModalDesc');
+  if (!modal || !MITRA_DATA[index]) return;
+  const d = MITRA_DATA[index];
+  logo.innerHTML = '<img src="' + d.logo + '" alt="' + d.name + '">';
+  title.innerHTML = d.name + ' <span class="mitra-modal-sub">' + d.sub + '</span>';
+  desc.textContent = d.desc;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('mitraModal');
+  if (!modal) return;
+  const close = document.getElementById('mitraModalClose');
+  function closeMitraModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  close.addEventListener('click', closeMitraModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeMitraModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) closeMitraModal();
+  });
+});
 
 // ===== GALERI LIGHTBOX =====
 (function initGalleryLightbox() {
