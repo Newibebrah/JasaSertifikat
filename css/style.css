@@ -180,11 +180,18 @@ img {
 .nav-logo {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 .nav-logo-img {
   height: 40px;
   width: auto;
   display: block;
+}
+.nav-logo-text {
+  color: var(--text-light);
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -1890,6 +1897,9 @@ img {
   .nav-logo-img {
     height: 28px;
   }
+  .nav-logo-text {
+    font-size: 0.75rem;
+  }
   .nav-hamburger span {
     width: 20px;
     height: 2px;
@@ -1977,6 +1987,9 @@ img {
   .nav-logo-img {
     height: 22px;
   }
+  .nav-logo-text {
+    font-size: 0.65rem;
+  }
   .hero-feature {
     padding: 10px;
   }
@@ -1996,6 +2009,9 @@ img {
   }
   .nav-logo-img {
     height: 20px;
+  }
+  .nav-logo-text {
+    font-size: 0.6rem;
   }
   .nav-links {
     width: 200px;
