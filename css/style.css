@@ -7,8 +7,8 @@
 }
 
 :root {
-  --primary: #0A1628;
-  --secondary: #1E3A5F;
+  --primary: #1E3A8A;
+  --secondary: #3B82F6;
   --accent: #F59E0B;
   --accent-hover: #d97706;
   --light: #F8FAFC;
@@ -163,7 +163,7 @@ img {
 }
 
 .navbar.scrolled {
-  background: rgba(10, 22, 40, 0.92);
+  background: rgba(30, 58, 138, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -1325,7 +1325,7 @@ img {
   max-width: 500px;
   padding: 36px 32px 28px;
   position: relative;
-  box-shadow: 0 20px 60px rgba(10, 22, 40, 0.3);
+  box-shadow: 0 20px 60px rgba(30, 58, 138, 0.3);
   animation: modalIn 0.3s ease;
   max-height: 90vh;
   overflow-y: auto;
@@ -1675,7 +1675,7 @@ img {
     right: -100%;
     width: 260px;
     height: 100vh;
-    background: rgba(10, 22, 40, 0.98);
+    background: rgba(30, 58, 138, 0.98);
     backdrop-filter: blur(20px);
     flex-direction: column;
     padding: 70px 20px 20px;
@@ -1794,7 +1794,7 @@ img {
     font-size: 0.68rem;
   }
   .keypoints-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
   .keypoint-card {
