@@ -476,10 +476,39 @@ img {
   align-items: center;
 }
 
+.about-content {
+  position: relative;
+  padding-left: 24px;
+}
+
+.about-content::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent), var(--accent-hover));
+  border-radius: 4px;
+}
+
+.about-content > .section-tag {
+  margin-bottom: 8px;
+}
+
+.about-content > .section-title {
+  margin-bottom: 20px;
+}
+
 .about-content p {
   color: #475569;
   margin-bottom: 20px;
   font-size: 1rem;
+  line-height: 1.8;
+}
+
+.about-content p strong {
+  color: var(--primary);
 }
 
 .about-visual {
@@ -492,22 +521,36 @@ img {
   background: var(--text-light);
   border-radius: var(--radius-md);
   padding: 28px 24px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px rgba(21, 45, 107, 0.06);
   text-align: center;
-  transition: var(--transition);
+  transition: all 0.3s ease;
   border: 1px solid #E2E8F0;
 }
 
 .about-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 30px rgba(21, 45, 107, 0.1);
   border-color: var(--accent);
 }
 
 .about-card .icon {
-  font-size: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
   color: var(--accent);
-  margin-bottom: 12px;
+  margin: 0 auto 14px;
+  transition: all 0.3s ease;
+}
+
+.about-card:hover .icon {
+  background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+  color: #fff;
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .about-card h4 {
@@ -535,14 +578,30 @@ img {
   background: var(--text-light);
   border-radius: var(--radius-lg);
   padding: 40px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px rgba(21, 45, 107, 0.06);
   border: 1px solid #E2E8F0;
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
+
+.visi-card::after,
+.misi-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.visi-card::after { background: linear-gradient(90deg, #2563EB, #60A5FA); }
+.misi-card::after { background: linear-gradient(90deg, var(--accent), var(--accent-hover)); }
 
 .visi-card:hover,
 .misi-card:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 40px rgba(21, 45, 107, 0.1);
   transform: translateY(-4px);
 }
 
@@ -614,14 +673,15 @@ img {
   border-radius: var(--radius-md);
   padding: 32px 24px;
   text-align: center;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px rgba(21, 45, 107, 0.06);
   border: 1px solid #E2E8F0;
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .keypoint-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 40px rgba(21, 45, 107, 0.1);
   border-color: var(--accent);
 }
 
@@ -2071,6 +2131,12 @@ img {
     grid-template-columns: 1fr;
     gap: 24px;
   }
+  .about-content {
+    padding-left: 16px;
+  }
+  .about-content::before {
+    width: 3px;
+  }
   .about-card {
     padding: 20px 16px;
   }
@@ -2081,6 +2147,14 @@ img {
   .visi-card,
   .misi-card {
     padding: 24px 20px;
+  }
+  .visi-card .icon,
+  .misi-card .icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+    border-radius: 12px;
   }
   .keypoints-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2339,7 +2413,11 @@ img {
     padding: 14px 12px;
   }
   .about-card .icon {
-    font-size: 1.4rem;
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    border-radius: 12px;
   }
   .about-card h4 {
     font-size: 0.85rem;
@@ -2459,8 +2537,11 @@ img {
     padding: 10px 8px;
   }
   .about-card .icon {
-    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
     margin-bottom: 6px;
+    border-radius: 10px;
   }
   .about-card h4 {
     font-size: 0.78rem;
@@ -2471,6 +2552,14 @@ img {
   .visi-card,
   .misi-card {
     padding: 14px 12px;
+  }
+  .visi-card .icon,
+  .misi-card .icon {
+    width: 36px;
+    height: 36px;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+    border-radius: 10px;
   }
   .visi-card h3,
   .misi-card h3 {
