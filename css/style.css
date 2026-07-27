@@ -1048,7 +1048,7 @@ img {
     padding: 0 48px;
   }
   #institusiGrid.scroll-x > * {
-    flex: 0 0 85%;
+    flex: 0 0 100%;
     scroll-snap-align: center;
   }
 }
@@ -1065,9 +1065,11 @@ img {
     right: 2px;
   }
   .carousel-scroll .scroll-x > *,
-  .services-grid.scroll-x > *,
-  #institusiGrid.scroll-x > * {
+  .services-grid.scroll-x > * {
     flex: 0 0 88%;
+  }
+  #institusiGrid.scroll-x > * {
+    flex: 0 0 100%;
   }
   .carousel-scroll .scroll-x {
     padding: 8px 38px;
