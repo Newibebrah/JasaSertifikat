@@ -1674,8 +1674,15 @@ img {
     padding: 20px;
   }
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  .footer-brand p {
+    max-width: 100%;
   }
   .footer {
     padding: 40px 0 20px;
@@ -1857,7 +1864,15 @@ img {
     font-size: 1.15rem;
   }
   .footer-grid {
-    gap: 18px;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  .footer-brand p {
+    max-width: 100%;
   }
   .footer {
     padding: 30px 0 16px;
