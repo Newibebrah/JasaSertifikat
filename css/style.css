@@ -1176,20 +1176,33 @@ img {
 .gallery-note {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  justify-content: center;
-  margin: -12px auto 28px;
-  font-size: 0.82rem;
-  color: #94A3B8;
+  gap: 14px;
+  margin: -12px auto 32px;
   max-width: 620px;
-  text-align: center;
-  line-height: 1.7;
+  background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+  border: 1px solid #DBEAFE;
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 16px 22px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.06);
 }
 .gallery-note i {
-  color: var(--accent);
-  font-size: 0.85rem;
-  margin-top: 3px;
+  color: #fff;
+  font-size: 0.8rem;
+  margin-top: 2px;
   flex-shrink: 0;
+  background: var(--accent);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-note span {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.7;
 }
 
 .gallery-item {
@@ -1364,11 +1377,16 @@ img {
 
 .mitra-intro {
   text-align: center;
-  max-width: 620px;
-  margin: -8px auto 32px;
-  font-size: 0.85rem;
-  color: #64748B;
-  line-height: 1.7;
+  max-width: 640px;
+  margin: -6px auto 36px;
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.8;
+  background: linear-gradient(135deg, #F8FAFC 0%, #FEFCE8 100%);
+  border: 1px solid #FEF3C7;
+  border-radius: var(--radius-md);
+  padding: 18px 24px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.05);
 }
 
 /* ===== MITRA MODAL ===== */
@@ -1378,7 +1396,8 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
   z-index: 9998;
   display: flex;
   align-items: center;
@@ -1396,21 +1415,43 @@ img {
   border-radius: var(--radius-lg);
   max-width: 480px;
   width: 88%;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08), 0 24px 64px rgba(15, 23, 42, 0.16);
   position: relative;
   overflow: hidden;
+  transform: translateY(12px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.mitra-modal.active .mitra-modal-content {
+  transform: translateY(0) scale(1);
+}
+.mitra-modal-header {
+  background: linear-gradient(135deg, var(--primary), #1E40AF);
+  padding: 24px 32px 20px;
+  text-align: center;
+  position: relative;
+}
+.mitra-modal-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.mitra-modal-header .mitra-modal-sub {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+  display: block;
 }
 .mitra-modal-close {
   position: absolute;
   top: 12px;
   right: 14px;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: none;
-  background: #F1F5F9;
-  color: #64748B;
-  font-size: 1.3rem;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 1.2rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1420,47 +1461,43 @@ img {
   line-height: 1;
 }
 .mitra-modal-close:hover {
-  background: #E2E8F0;
+  background: rgba(255,255,255,0.35);
 }
 .mitra-modal-body {
-  padding: 40px 32px 36px;
-  text-align: center;
+  padding: 32px 32px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .mitra-modal-logo {
-  width: 96px;
-  height: 96px;
+  width: 104px;
+  height: 104px;
   border-radius: 50%;
-  border: 3px solid #E2E8F0;
+  border: 4px solid #E2E8F0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin: 0 auto 20px;
+  margin: -64px auto 0;
   background: #fff;
+  box-shadow: 0 4px 16px rgba(21, 45, 107, 0.1);
+  position: relative;
+  z-index: 1;
 }
 .mitra-modal-logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 10px;
-}
-.mitra-modal-body h3 {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 4px;
-}
-.mitra-modal-body .mitra-modal-sub {
-  font-size: 0.8rem;
-  color: #94A3B8;
-  margin-bottom: 16px;
-  display: block;
+  padding: 12px;
 }
 .mitra-modal-body p {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: #475569;
-  line-height: 1.75;
+  line-height: 1.8;
   text-align: left;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #F1F5F9;
 }
 
 /* ===== MITRA SLIDER ===== */

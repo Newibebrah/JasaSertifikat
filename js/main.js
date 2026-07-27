@@ -513,11 +513,13 @@ function openMitraModal(index) {
   const modal = document.getElementById('mitraModal');
   const logo = document.getElementById('mitraModalLogo');
   const title = document.getElementById('mitraModalTitle');
+  const sub = document.getElementById('mitraModalSub');
   const desc = document.getElementById('mitraModalDesc');
   if (!modal || !MITRA_DATA[index]) return;
   const d = MITRA_DATA[index];
   logo.innerHTML = '<img src="' + d.logo + '" alt="' + d.name + '">';
-  title.innerHTML = d.name + ' <span class="mitra-modal-sub">' + d.sub + '</span>';
+  title.textContent = d.name;
+  sub.textContent = d.sub;
   desc.textContent = d.desc;
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
