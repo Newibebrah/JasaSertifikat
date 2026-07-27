@@ -156,58 +156,59 @@
     </div>
   </section>
 
-  <!-- MITRA PREVIEW -->
-  <section class="section-padding">
+  <!-- MITRA SLIDER -->
+  <section class="section-padding" style="background:#F8FAFC;">
     <div class="container">
       <div class="text-center reveal">
         <span class="section-tag">Mitra</span>
         <h2 class="section-title">Terafiliasi & Diakui Oleh</h2>
         <p class="section-subtitle">
-          Kami telah diakui dan menjalin kerja sama dengan lembaga-lembaga terkemuka berikut
+          Kami telah dipercaya oleh ribuan klien dan bermitra dengan lembaga-lembaga terkemuka
         </p>
       </div>
-      <div class="carousel-scroll">
-        <button class="carousel-btn prev" onclick="scrollCarousel(this, -1)" aria-label="Sebelumnya"><i class="fas fa-chevron-left"></i></button>
-        <div class="mitra-grid scroll-x" id="institusiGrid">
-          <div class="mitra-card reveal">
-            <div class="logo-wrap"><img src="assets/Mitra/PUPR.svg" alt="PUPR"></div>
+      <div class="mitra-slider">
+        <div class="mitra-slider-track" id="mitraSliderTrack">
+          <div class="mitra-slide">
+            <div class="mitra-slide-logo"><img src="assets/Mitra/PUPR.svg" alt="PUPR"></div>
             <h4>PUPR</h4>
             <p>Kementerian PUPR</p>
           </div>
-          <div class="mitra-card reveal">
-            <div class="logo-wrap"><img src="assets/Mitra/kemenker.png" alt="Kemnaker"></div>
+          <div class="mitra-slide">
+            <div class="mitra-slide-logo"><img src="assets/Mitra/kemenker.png" alt="Kemnaker"></div>
             <h4>Kemnaker</h4>
             <p>Kementerian Ketenagakerjaan</p>
           </div>
-          <div class="mitra-card reveal">
-            <div class="logo-wrap"><img src="assets/Mitra/ESDM.jpg" alt="ESDM"></div>
+          <div class="mitra-slide">
+            <div class="mitra-slide-logo"><img src="assets/Mitra/ESDM.jpg" alt="ESDM"></div>
             <h4>ESDM</h4>
             <p>Kementerian ESDM</p>
           </div>
-          <div class="mitra-card reveal">
-            <div class="logo-wrap"><img src="assets/Mitra/iaf_logo.svg" alt="IAF"></div>
+          <div class="mitra-slide">
+            <div class="mitra-slide-logo"><img src="assets/Mitra/iaf_logo.svg" alt="IAF"></div>
             <h4>IAF</h4>
             <p>International Accreditation Forum</p>
           </div>
-          <div class="mitra-card reveal">
-            <div class="logo-wrap"><img src="assets/Mitra/KAN.png" alt="KAN"></div>
+          <div class="mitra-slide">
+            <div class="mitra-slide-logo"><img src="assets/Mitra/KAN.png" alt="KAN"></div>
             <h4>KAN</h4>
             <p>Komite Akreditasi Nasional</p>
           </div>
-          <div class="mitra-card reveal">
-            <div class="logo-wrap"><img src="assets/Mitra/PS3M.png" alt="P3SM"></div>
+          <div class="mitra-slide">
+            <div class="mitra-slide-logo"><img src="assets/Mitra/PS3M.png" alt="P3SM"></div>
             <h4>P3SM</h4>
             <p>Perkumpulan Profesi Penguji dan Sertifikasi Mutu Indonesia</p>
           </div>
-          <div class="mitra-card reveal">
-            <div class="logo-wrap"><img src="assets/Mitra/BNSP.png" alt="BNSP"></div>
+          <div class="mitra-slide">
+            <div class="mitra-slide-logo"><img src="assets/Mitra/BNSP.png" alt="BNSP"></div>
             <h4>BNSP</h4>
             <p>Badan Nasional Sertifikasi Profesi</p>
           </div>
         </div>
-        <button class="carousel-btn next" onclick="scrollCarousel(this, 1)" aria-label="Selanjutnya"><i class="fas fa-chevron-right"></i></button>
+        <button class="mitra-slider-btn mitra-slider-prev" id="mitraSliderPrev" aria-label="Sebelumnya"><i class="fas fa-chevron-left"></i></button>
+        <button class="mitra-slider-btn mitra-slider-next" id="mitraSliderNext" aria-label="Selanjutnya"><i class="fas fa-chevron-right"></i></button>
       </div>
-      <div class="text-center reveal" style="margin-top:40px;">
+      <div class="mitra-slider-dots" id="mitraSliderDots"></div>
+      <div class="text-center reveal" style="margin-top:36px;">
         <a href="mitra.html" class="btn btn-primary">
           Lihat Semua Mitra <i class="fas fa-arrow-right"></i>
         </a>

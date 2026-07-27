@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // ===== MITRA SLIDER =====
+  initMitraSlider();
   // ===== INJECT WA MODAL =====
   injectWAModal();
   // ===== INIT WA CTA BUTTONS =====
@@ -404,6 +406,77 @@ function initWACTAButtons() {
       openModal();
     });
   });
+}
+
+// ===== MITRA SLIDER =====
+function initMitraSlider() {
+  const track = document.getElementById('mitraSliderTrack');
+  if (!track) return;
+  const slides = track.querySelectorAll('.mitra-slide');
+  const prevBtn = document.getElementById('mitraSliderPrev');
+  const nextBtn = document.getElementById('mitraSliderNext');
+  const dotsContainer = document.getElementById('mitraSliderDots');
+  const totalSlides = slides.length;
+  let currentIndex = 0;
+  let autoplayTimer = null;
+  let slidesPerView = window.innerWidth >= 769 ? 3 : 1;
+
+  function updateSlidesPerView() {
+    slidesPerView = window.innerWidth >= 769 ? 3 : 1;
+  }
+
+  function goToSlide(index) {
+    const maxIndex = totalSlides - slidesPerView;
+    currentIndex = Math.max(0, Math.min(index, maxIndex));
+    const offset = -(currentIndex * (100 / slidesPerView));
+    track.style.transform = `translateX(${offset}%)`;
+    updateDots();
+  }
+
+  function updateDots() {
+    const dotCount = totalSlides - slidesPerView + 1;
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < dotCount; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'dot' + (i === currentIndex ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function nextSlide() { goToSlide(currentIndex + 1); }
+  function prevSlide() { goToSlide(currentIndex - 1); }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(nextSlide, 3500);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) { clearInterval(autoplayTimer); autoplayTimer = null; }
+  }
+
+  prevBtn.addEventListener('click', () => { prevSlide(); startAutoplay(); });
+  nextBtn.addEventListener('click', () => { nextSlide(); startAutoplay(); });
+
+  track.addEventListener('mouseenter', stopAutoplay);
+  track.addEventListener('mouseleave', startAutoplay);
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const oldSlidesPerView = slidesPerView;
+      updateSlidesPerView();
+      if (oldSlidesPerView !== slidesPerView) {
+        goToSlide(currentIndex);
+      }
+    }, 150);
+  });
+
+  goToSlide(0);
+  startAutoplay();
 }
 
 function scrollCarousel(btn, dir) {
