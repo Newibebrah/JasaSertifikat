@@ -991,6 +991,29 @@ img {
   color: #fff;
 }
 
+.mitra-card-icon {
+  background: var(--text-light) !important;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+}
+
+.mitra-card-icon img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  transition: var(--transition);
+}
+
+.service-card:hover .mitra-card-icon img {
+  transform: scale(1.15);
+}
+
+.service-card:hover .mitra-card-icon {
+  background: var(--text-light) !important;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245,158,11,0.15);
+}
+
 .service-card h4 {
   font-size: 1rem;
   font-weight: 700;
