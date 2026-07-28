@@ -2068,6 +2068,63 @@ img {
   }
 }
 
+/* ===== LAYANAN SECTION VARIANTS ===== */
+.section-ringkasan {
+  padding: 0 0 32px;
+}
+.section-badge {
+  padding: 40px 0;
+}
+.section-badge-alt {
+  padding: 40px 0;
+  background: #F1F5F9;
+}
+.badge-grid-ringkasan {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  max-width: 900px;
+  margin: 24px auto 0;
+}
+.page-section-header .section-subtitle {
+  margin-bottom: 0;
+}
+@media (max-width: 768px) {
+  .section-ringkasan { padding: 0 0 20px; }
+  .section-badge { padding: 28px 0; }
+  .section-badge-alt { padding: 28px 0; }
+  .badge-grid-ringkasan {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+}
+@media (max-width: 480px) {
+  .section-ringkasan { padding: 0 0 16px; }
+  .section-badge { padding: 20px 0; }
+  .section-badge-alt { padding: 20px 0; }
+  .badge-grid-ringkasan {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .badge-grid-ringkasan .badge-item {
+    padding: 8px 6px;
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 380px) {
+  .section-ringkasan { padding: 0 0 12px; }
+  .section-badge { padding: 16px 0; }
+  .section-badge-alt { padding: 16px 0; }
+  .badge-grid-ringkasan {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+  }
+  .badge-grid-ringkasan .badge-item {
+    padding: 6px 4px;
+    font-size: 0.62rem;
+  }
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background: var(--primary);
