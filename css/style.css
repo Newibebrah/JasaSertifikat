@@ -3126,4 +3126,38 @@ img {
   .lightbox-content {
     width: 94%;
   }
+  .service-item-img {
+    height: 140px;
+  }
+  .service-item-body {
+    padding: 16px 14px;
+  }
+  .service-item-reverse .service-item-body {
+    padding: 16px 14px;
+  }
+  .service-item-num {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+  .service-item-header h3 {
+    font-size: 0.85rem;
+  }
+  .service-item-desc {
+    font-size: 0.78rem;
+  }
+  .service-item-tags span {
+    font-size: 0.68rem;
+    padding: 3px 8px;
+  }
+  .location-detail {
+    padding: 16px;
+  }
+  .location-detail h3 {
+    font-size: 0.95rem;
+  }
+  .visi-card p,
+  .misi-card ul li {
+    font-size: 0.78rem;
+  }
 }
