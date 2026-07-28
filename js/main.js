@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ===== MITRA SLIDER =====
   initMitraSlider();
+  // ===== BADGE WA CLICK =====
+  (function initBadgeWA() {
+    const WA_NUMBER = '6283841213336';
+    document.querySelectorAll('.badge-grid').forEach(grid => {
+      grid.addEventListener('click', (e) => {
+        const badge = e.target.closest('.badge-item');
+        if (!badge) return;
+        const text = badge.textContent.trim();
+        const msg = encodeURIComponent(`Halo ARIL HIDAYAT, saya tertarik dengan layanan: ${text}. Mohon informasi lebih lanjut.`);
+        window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+      });
+    });
+  })();
   // ===== INJECT WA MODAL =====
   injectWAModal();
   // ===== INIT WA CTA BUTTONS =====

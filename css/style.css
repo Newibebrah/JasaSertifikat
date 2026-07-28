@@ -1032,6 +1032,49 @@ img {
   background: #FFFBEB;
 }
 
+.badge-item i {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+/* ===== MITRA BADGE ===== */
+.mitra-badge-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mitra-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 12px;
+}
+
+.mitra-badge img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #F8FAFC;
+  padding: 6px;
+  box-shadow: 0 2px 8px rgba(21,45,107,0.06);
+  transition: var(--transition);
+}
+
+.mitra-badge:hover img {
+  transform: scale(1.15);
+  box-shadow: 0 4px 16px rgba(245,158,11,0.2);
+}
+
+.mitra-badge span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
 .layanan-badge .badge-item {
   cursor: pointer;
   padding: 18px 10px;
@@ -2537,6 +2580,13 @@ img {
     padding: 12px 8px;
     font-size: 0.72rem;
   }
+  .mitra-badge img {
+    width: 40px;
+    height: 40px;
+  }
+  .mitra-badge {
+    padding: 14px 8px;
+  }
   .mitra-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -2723,6 +2773,10 @@ img {
   .badge-item {
     padding: 8px 6px;
     font-size: 0.68rem;
+  }
+  .mitra-badge img {
+    width: 36px;
+    height: 36px;
   }
   .keypoints-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2926,6 +2980,10 @@ img {
   .badge-item {
     padding: 5px 4px;
     font-size: 0.6rem;
+  }
+  .mitra-badge img {
+    width: 30px;
+    height: 30px;
   }
   .nav-logo-img {
     height: 20px;
