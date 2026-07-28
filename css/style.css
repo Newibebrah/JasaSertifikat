@@ -1032,6 +1032,34 @@ img {
   background: #FFFBEB;
 }
 
+.layanan-badge .badge-item {
+  cursor: pointer;
+  padding: 18px 10px;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 480px) {
+  .layanan-badge {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .layanan-badge .badge-item {
+    padding: 12px 6px;
+    font-size: 0.68rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .layanan-badge {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .layanan-badge .badge-item {
+    padding: 10px 4px;
+    font-size: 0.65rem;
+  }
+}
+
 /* ===== MITRA / PARTNERS ===== */
 .mitra-grid {
   display: grid;
