@@ -375,50 +375,53 @@ img {
   height: 180px;
   top: 8%;
   background: linear-gradient(90deg,
-    transparent 5%, rgba(6,182,212,0.8) 20%, rgba(34,211,238,0.9) 30%, rgba(103,232,249,0.6) 40%, transparent 55%
+    transparent 5%, rgba(6,182,212,0.7) 15%, rgba(34,211,238,0.9) 25%, rgba(103,232,249,0.5) 38%, transparent 50%,
+    transparent 55%, rgba(6,182,212,0.6) 65%, rgba(34,211,238,0.8) 75%, transparent 90%
   );
-  transform: rotate(-2deg) skewX(-3deg);
-  animation: auroraLine1 12s ease-in-out infinite alternate;
+  background-size: 200% 100%;
+  animation: auroraFlow1 8s ease-in-out infinite alternate;
 }
 
 .hero-aurora .aurora-layer.l2 {
   height: 140px;
-  top: 30%;
+  top: 28%;
   background: linear-gradient(90deg,
-    transparent 35%, rgba(16,185,129,0.7) 48%, rgba(52,211,153,0.8) 55%, rgba(45,212,191,0.5) 65%, transparent 78%
+    transparent 30%, rgba(16,185,129,0.6) 42%, rgba(52,211,153,0.8) 50%, rgba(45,212,191,0.5) 60%, transparent 72%,
+    transparent 78%, rgba(16,185,129,0.5) 86%, rgba(52,211,153,0.6) 92%, transparent 100%
   );
-  transform: rotate(1.5deg) skewX(2deg);
-  animation: auroraLine2 15s ease-in-out infinite alternate-reverse;
-  opacity: 0.8;
+  background-size: 200% 100%;
+  animation: auroraFlow2 10s ease-in-out infinite alternate-reverse;
+  opacity: 0.7;
 }
 
 .hero-aurora .aurora-layer.l3 {
   height: 120px;
-  top: 55%;
+  top: 52%;
   background: linear-gradient(90deg,
-    transparent 55%, rgba(168,85,247,0.6) 65%, rgba(192,132,252,0.7) 72%, rgba(129,140,248,0.5) 80%, transparent 92%
+    transparent 50%, rgba(168,85,247,0.5) 60%, rgba(192,132,252,0.7) 68%, rgba(129,140,248,0.5) 78%, transparent 88%,
+    transparent 92%, rgba(168,85,247,0.4) 96%, rgba(192,132,252,0.5) 100%
   );
-  transform: rotate(-1deg) skewX(-4deg);
-  animation: auroraLine3 18s ease-in-out infinite alternate;
-  opacity: 0.7;
+  background-size: 200% 100%;
+  animation: auroraFlow3 12s ease-in-out infinite alternate;
+  opacity: 0.6;
 }
 
-@keyframes auroraLine1 {
-  0% { transform: rotate(-2deg) skewX(-3deg) translateX(0); }
-  50% { transform: rotate(1deg) skewX(1deg) translateX(5%); }
-  100% { transform: rotate(-3deg) skewX(-5deg) translateX(-3%); }
+@keyframes auroraFlow1 {
+  0% { transform: translateX(-8%) translateY(0) rotate(-2deg) skewX(-3deg); background-position: 0% 0; }
+  50% { transform: translateX(5%) translateY(-12px) rotate(1.5deg) skewX(2deg); background-position: 50% 0; }
+  100% { transform: translateX(-3%) translateY(6px) rotate(-3deg) skewX(-4deg); background-position: 100% 0; }
 }
 
-@keyframes auroraLine2 {
-  0% { transform: rotate(1.5deg) skewX(2deg) translateX(0); }
-  50% { transform: rotate(-1deg) skewX(-2deg) translateX(-5%); }
-  100% { transform: rotate(2deg) skewX(3deg) translateX(4%); }
+@keyframes auroraFlow2 {
+  0% { transform: translateX(5%) translateY(0) rotate(1.5deg) skewX(2deg); background-position: 100% 0; }
+  50% { transform: translateX(-6%) translateY(10px) rotate(-1deg) skewX(-3deg); background-position: 50% 0; }
+  100% { transform: translateX(4%) translateY(-8px) rotate(2.5deg) skewX(3deg); background-position: 0% 0; }
 }
 
-@keyframes auroraLine3 {
-  0% { transform: rotate(-1deg) skewX(-4deg) translateX(0); }
-  50% { transform: rotate(2deg) skewX(1deg) translateX(6%); }
-  100% { transform: rotate(-2deg) skewX(-2deg) translateX(-4%); }
+@keyframes auroraFlow3 {
+  0% { transform: translateX(0) translateY(0) rotate(-1deg) skewX(-4deg); background-position: 50% 0; }
+  50% { transform: translateX(8%) translateY(-8px) rotate(2deg) skewX(1deg); background-position: 100% 0; }
+  100% { transform: translateX(-5%) translateY(10px) rotate(-2.5deg) skewX(-2deg); background-position: 0% 0; }
 }
 
 .hero-particles {
