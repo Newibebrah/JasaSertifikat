@@ -933,10 +933,25 @@ img {
 }
 
 /* ===== SERVICES ===== */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+.services-grid.scroll-x {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  flex-wrap: nowrap;
+  touch-action: pan-x;
+  padding: 0 52px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.services-grid.scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+.services-grid.scroll-x > * {
+  flex: 0 0 calc(100% / 3);
+  scroll-snap-align: center;
 }
 
 .service-card {
@@ -1144,7 +1159,7 @@ img {
 }
 
 .carousel-btn {
-  display: none;
+  display: flex;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1179,7 +1194,6 @@ img {
 
 @media (max-width: 768px) {
   .carousel-btn {
-    display: flex;
     left: 4px;
     right: auto;
   }
@@ -1188,34 +1202,18 @@ img {
     right: 4px;
   }
   .carousel-scroll .scroll-x {
-    display: flex;
     gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
     padding: 8px 48px;
-    flex-wrap: nowrap;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    touch-action: pan-x;
-  }
-  .carousel-scroll .scroll-x::-webkit-scrollbar {
-    display: none;
   }
   .carousel-scroll .scroll-x > * {
     flex: 0 0 85%;
-    scroll-snap-align: center;
   }
   .services-grid.scroll-x {
-    display: flex;
     gap: 12px;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    touch-action: pan-x;
     padding: 0 48px;
   }
   .services-grid.scroll-x > * {
     flex: 0 0 85%;
-    scroll-snap-align: center;
   }
   #institusiGrid.scroll-x {
     display: flex;
