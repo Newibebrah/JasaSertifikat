@@ -183,14 +183,14 @@ img {
   gap: 10px;
 }
 .nav-logo-img {
-  height: 40px;
+  height: 46px;
   width: auto;
   display: block;
 }
 .nav-logo-text {
   color: var(--text-light);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1rem;
   white-space: nowrap;
 }
 
