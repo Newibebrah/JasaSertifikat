@@ -7,8 +7,8 @@
 }
 
 :root {
-  --primary: #1A2A44;
-  --secondary: #264870;
+  --primary: #142238;
+  --secondary: #1E3A5C;
   --accent: #F59E0B;
   --accent-hover: #d97706;
   --light: #F8FAFC;
@@ -163,7 +163,7 @@ img {
 }
 
 .navbar.scrolled {
-  background: rgba(26, 42, 68, 0.94);
+  background: rgba(20, 34, 56, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -263,7 +263,7 @@ img {
 /* ===== HERO ===== */
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 60%, #1E3858 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 60%, #162C48 100%);
   display: flex;
   align-items: center;
   position: relative;
