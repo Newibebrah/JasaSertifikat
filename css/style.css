@@ -7,8 +7,8 @@
 }
 
 :root {
-  --primary: #121E36;
-  --secondary: #1A3050;
+  --primary: #1A2A44;
+  --secondary: #264870;
   --accent: #F59E0B;
   --accent-hover: #d97706;
   --light: #F8FAFC;
@@ -59,7 +59,7 @@ img {
 }
 
 .section-padding {
-  padding: 90px 0;
+  padding: 70px 0;
 }
 
 .section-tag {
@@ -163,7 +163,7 @@ img {
 }
 
 .navbar.scrolled {
-  background: rgba(18, 30, 54, 0.94);
+  background: rgba(26, 42, 68, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -263,7 +263,7 @@ img {
 /* ===== HERO ===== */
 .hero {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 60%, #15203A 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 60%, #1E3858 100%);
   display: flex;
   align-items: center;
   position: relative;
@@ -525,7 +525,7 @@ img {
 
 /* ===== PAGE HEADER ===== */
 .page-header {
-  padding: 160px 0 80px;
+  padding: 130px 0 60px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   position: relative;
   overflow: hidden;
