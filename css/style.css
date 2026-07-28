@@ -7,8 +7,8 @@
 }
 
 :root {
-  --primary: #152D6B;
-  --secondary: #2563EB;
+  --primary: #0A1A30;
+  --secondary: #14346A;
   --accent: #F59E0B;
   --accent-hover: #d97706;
   --light: #F8FAFC;
@@ -163,7 +163,7 @@ img {
 }
 
 .navbar.scrolled {
-  background: rgba(21, 45, 107, 0.92);
+  background: rgba(10, 26, 48, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -620,7 +620,7 @@ img {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
-.visi-card::after { background: linear-gradient(90deg, #2563EB, #60A5FA); }
+.visi-card::after { background: linear-gradient(90deg, var(--secondary), #60A5FA); }
 .misi-card::after { background: linear-gradient(90deg, var(--accent), var(--accent-hover)); }
 
 .visi-card:hover,
@@ -643,7 +643,7 @@ img {
 
 .visi-card .icon {
   background: linear-gradient(135deg, #DBEAFE, #EFF6FF);
-  color: #2563EB;
+  color: var(--secondary);
 }
 
 .misi-card .icon {
