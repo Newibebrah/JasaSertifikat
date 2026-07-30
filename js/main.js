@@ -562,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const descs = [
     'Tim GoSertify melayani konsultasi tatap muka kepada klien yang ingin mengurus sertifikasi badan usaha maupun profesi, memberikan penjelasan rinci mengenai prosedur, persyaratan, dan estimasi waktu penyelesaian secara profesional dan transparan.',
     'Proses pendampingan pengisian dokumen persyaratan sertifikasi dilakukan secara teliti oleh tim administrasi kami untuk memastikan setiap kelengkapan data sesuai ketentuan yang berlaku sebelum diajukan ke lembaga terkait.',
-    'Suasana ruang operasional tim GoSertify dalam mengoordinasikan setiap tahap pengurusan sertifikat klien, mulai dari verifikasi awal hingga pengajuan akhir ke instansi penerbit sertifikasi.',
+    'Suasana ruang operasional tim PT. Yash Pijar Arteksi dalam mengoordinasikan setiap tahap pengurusan sertifikat klien, mulai dari verifikasi awal hingga pengajuan akhir ke instansi penerbit sertifikasi.',
     'Penyerahan Sertifikat Badan Usaha (SBU) kepada salah satu klien perusahaan konstruksi yang telah berhasil menyelesaikan seluruh proses sertifikasi sesuai standar kualifikasi yang ditetapkan.',
     'Dokumentasi tim verifikasi saat melakukan pengecekan dokumen teknis dan administratif untuk memastikan keakuratan data sebelum melanjutkan proses sertifikasi ke tahap selanjutnya.',
     'Suasana diskusi dan koordinasi antara manajemen GoSertify dengan perwakilan mitra institusi dalam rangka mempercepat dan menyelaraskan proses sertifikasi klien sesuai regulasi terkini.',
