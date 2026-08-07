@@ -21,16 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== STICKY NAVBAR =====
   const navbar = document.querySelector('.navbar');
-  let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    if (currentScroll > 60) {
+    if (window.pageYOffset > 60) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-    lastScroll = currentScroll;
   });
 
   // ===== HAMBURGER MENU =====
@@ -216,6 +213,23 @@ document.addEventListener('DOMContentLoaded', () => {
         modalOverlay.classList.add('active');
         document.getElementById('field-nama').focus();
       });
+    });
+  }
+
+  // ===== MITRA MODAL =====
+  const mitraModal = document.getElementById('mitraModal');
+  if (mitraModal) {
+    const mitraModalClose = document.getElementById('mitraModalClose');
+    const closeMitraModal = () => {
+      mitraModal.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+    mitraModalClose.addEventListener('click', closeMitraModal);
+    mitraModal.addEventListener('click', (e) => {
+      if (e.target === mitraModal) closeMitraModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mitraModal.classList.contains('active')) closeMitraModal();
     });
   }
 });
@@ -472,10 +486,6 @@ function initMitraSlider() {
     isDragging = true;
   }, { passive: true });
 
-  track.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-  }, { passive: true });
-
   track.addEventListener('touchend', (e) => {
     if (!isDragging) return;
     isDragging = false;
@@ -537,23 +547,6 @@ function openMitraModal(index) {
   modal.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('mitraModal');
-  if (!modal) return;
-  const close = document.getElementById('mitraModalClose');
-  function closeMitraModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  close.addEventListener('click', closeMitraModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeMitraModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) closeMitraModal();
-  });
-});
 
 // ===== GALERI LIGHTBOX =====
 (function initGalleryLightbox() {
